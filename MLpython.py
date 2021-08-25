@@ -32,3 +32,12 @@ cols = ['EventNumber', 'jet_pT', 'jet_eta', 'jet_phi', 'jet_m', 'jet_isB']
 tree = uproot.open("higgsevents.root")[tree_name]
 
 #tree.show() # If I want to print the variables that I'm using
+
+# Create a dataframe with all the variables of the tree I decided to use for the signal
+df_higgsevents = tree.arrays(cols, library="pd")
+
+# I read the .root file containing the top pair production events that is in the same directory of the file
+tree = uproot.open("ttbarevents.root")[tree_name]
+
+# Create a dataframe with all the variables of the tree I decided to use for the background
+df_ttbarevents = tree.arrays(cols, library="pd")
