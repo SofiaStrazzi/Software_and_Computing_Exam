@@ -21,3 +21,9 @@ clear_output()
 
 # Print the version of TensorFlow
 print("TensorFlow " + str(tf.__version__))
+
+# Configuration of the tree
+tree_name = "EventsTree" #All the trees in the different files are called EventsTree
+
+# Define list of variables which the file takes from the trees in order to analyze the data
+cols = ['EventNumber', 'jet_pT', 'jet_eta', 'jet_phi', 'jet_m', 'jet_isB']
