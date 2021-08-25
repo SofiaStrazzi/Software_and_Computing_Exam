@@ -12,7 +12,6 @@
 
 import tensorflow as tf
 import pandas as pd
-!pip3 install uproot
 import uproot
 import numpy as np
 from matplotlib import pyplot as plt
