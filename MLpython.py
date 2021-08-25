@@ -27,3 +27,8 @@ tree_name = "EventsTree" #All the trees in the different files are called Events
 
 # Define list of variables which the file takes from the trees in order to analyze the data
 cols = ['EventNumber', 'jet_pT', 'jet_eta', 'jet_phi', 'jet_m', 'jet_isB']
+
+# I read the .root file containing the Higgs events that is in the same directory of the file
+tree = uproot.open("higgs.root")[tree_name]
+
+#tree.show() # If I want to print the variables that I'm using
