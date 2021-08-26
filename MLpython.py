@@ -51,3 +51,16 @@ df_ttbarevents.jet_pT.hist(ax=ax, bins=10, range=(0,300), alpha=0.7, label='ttba
 
 ax.legend(frameon=False, prop={'size': 16})
 plt.show()
+
+# I plot the pT of the leading jet in every event for both signal and background datasets
+leading_jet_higgs = df_higgs.jet_pT.xs(0, level='subentry')
+leading_jet_ttbar = df_ttbar.jet_pT.xs(0, level='subentry')
+
+fig, ax2 = plt.subplots(figsize=(5, 5))
+ax2.set_xlabel("Leading jet $p_{T}$ [GeV]")
+
+leading_jet_higgs.hist(ax=ax2, bins=10, range=(0,300), alpha=0.7, label='Higgsevents(sgn)')
+leading_jet_ttbar.hist(ax=ax2, bins=10, range=(0,300), alpha=0.7, label='ttbarevents(bkg)')
+
+ax2.legend(frameon=False, prop={'size': 16})
+plt.show()
