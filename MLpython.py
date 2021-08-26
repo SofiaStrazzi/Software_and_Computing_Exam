@@ -112,4 +112,4 @@ ttbar_df['target']=0
 splitted_ttbar_df = np.array_split(ttbar_df, 2)
 
 train_ttbar_df = splitted_ttbar_df[0]
-eval_ttbar_df = my_splitted_ttbar_df[1]
+eval_ttbar_df = splitted_ttbar_df[1]
