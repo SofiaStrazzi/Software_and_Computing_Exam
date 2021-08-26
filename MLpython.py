@@ -86,7 +86,7 @@ ax3.legend(frameon=False, prop={'size': 16})
 plt.show()
 
 
-##### I create a dataframe in which I put alla the information that I want to exploit:
+##### I create a dataframe in which I put all the information that I want to exploit:
 
 # I do it for the signal first (Higgs events)
 higgs_frame = { 'lead_jet': leading_jet_higgs, 'njet': njet_higgs }
@@ -100,3 +100,16 @@ splitted_higgs_df = np.array_split(higgs_df, 2)
 
 train_higgs_df = splitted_higgs_df[0]
 eval_higgs_df = splitted_higgs_df[1]
+
+# I do the same for the background now (ttbar events)
+ttbar_frame = { 'lead_jet': leading_jet_ttbar, 'njet': njet_ttbar }
+ttbar_df = pd.DataFrame(ttbar_frame)
+
+# I add a target for the training of the Machine Learning methods
+ttbar_df['target']=0
+
+# I split the events one half to train the methods and the other half for the validation
+splitted_ttbar_df = np.array_split(ttbar_df, 2)
+
+train_ttbar_df = splitted_ttbar_df[0]
+eval_ttbar_df = my_splitted_ttbar_df[1]
