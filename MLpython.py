@@ -50,6 +50,7 @@ df_higgsevents.jet_pT.hist(ax=ax, bins=10, range=(0,300), alpha=0.7, label='Higg
 df_ttbarevents.jet_pT.hist(ax=ax, bins=10, range=(0,300), alpha=0.7, label='ttbarevents(bkg)')
 
 ax.legend(frameon=False, prop={'size': 16})
+
 plt.show()
 
 # I plot the pT of the leading jet in every event for both signal and background datasets
@@ -63,4 +64,20 @@ leading_jet_higgs.hist(ax=ax2, bins=10, range=(0,300), alpha=0.7, label='Higgsev
 leading_jet_ttbar.hist(ax=ax2, bins=10, range=(0,300), alpha=0.7, label='ttbarevents(bkg)')
 
 ax2.legend(frameon=False, prop={'size': 16})
+
+plt.show()
+
+# I build an event-level variable: I visualize the number of jets in each event
+
+njet_higgs = df_higgsevents.groupby('entry').size()
+njet_ttbar = df_ttbarevents.groupby('entry').size()
+
+fig, ax3 = plt.subplots(figsize=(5, 5))
+ax3.set_xlabel("Jet multiplicity")
+
+njet_higgs.hist(ax=ax, bins=10, range=(0,10), alpha=0.7, label='Higgsevents (sgn)')
+njet_ttbar.hist(ax=ax, bins=10, range=(0,10), alpha=0.7, label='ttbarevents (bkg)')
+
+ax3.legend(frameon=False, prop={'size': 16})
+
 plt.show()
