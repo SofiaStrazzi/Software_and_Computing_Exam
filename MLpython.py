@@ -96,7 +96,7 @@ higgs_df = pd.DataFrame(higgs_frame)
 higgs_df['target']=1
 
 # I split the events one half to train the methods and the other half for the validation 
-splited_higgs_df = np.array_split(higgs_df, 2)
+splitted_higgs_df = np.array_split(higgs_df, 2)
 
 train_higgs_df = splitted_higgs_df[0]
 eval_higgs_df = splitted_higgs_df[1]
