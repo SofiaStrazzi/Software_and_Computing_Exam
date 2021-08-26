@@ -75,8 +75,8 @@ njet_ttbar = df_ttbarevents.groupby('entry').size()
 fig, ax3 = plt.subplots(figsize=(5, 5))
 ax3.set_xlabel("Jet multiplicity")
 
-njet_higgs.hist(ax=ax, bins=10, range=(0,10), alpha=0.7, label='Higgsevents (sgn)')
-njet_ttbar.hist(ax=ax, bins=10, range=(0,10), alpha=0.7, label='ttbarevents (bkg)')
+njet_higgs.hist(ax=ax3, bins=10, range=(0,10), alpha=0.7, label='Higgsevents (sgn)')
+njet_ttbar.hist(ax=ax3, bins=10, range=(0,10), alpha=0.7, label='ttbarevents (bkg)')
 
 ax3.legend(frameon=False, prop={'size': 16})
 
