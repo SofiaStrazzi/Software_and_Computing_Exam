@@ -42,6 +42,9 @@ tree = uproot.open("ttbarevents.root")[tree_name]
 # Create a dataframe with all the variables of the tree I decided to use for the background
 df_ttbarevents = tree.arrays(cols, library="pd")
 
+
+##### I have a look to some distributions in order to have an idea of the data that I have
+
 # I try to have a look at the jet pTs
 fig, ax = plt.subplots(figsize=(5, 5))
 ax.set_xlabel("Jet $p_{T}$ [GeV]")
@@ -81,3 +84,19 @@ njet_ttbar.hist(ax=ax3, bins=10, range=(0,10), alpha=0.7, label='ttbarevents (bk
 ax3.legend(frameon=False, prop={'size': 16})
 
 plt.show()
+
+
+##### I create a dataframe in which I put alla the information that I want to exploit:
+
+# I do it for the signal first (Higgs events)
+higgs_frame = { 'lead_jet': leading_jet_higgs, 'njet': njet_higgs }
+higgs_df = pd.DataFrame(higgs_frame)
+
+# I add a target for the training of the Machine Learning methods
+higgs_df['target']=1
+
+# I split the events one half to train the methods and the other half for the validation 
+splited_higgs_df = np.array_split(higgs_df, 2)
+
+train_higgs_df = splitted_higgs_df[0]
+eval_higgs_df = splitted_higgs_df[1]
