@@ -50,3 +50,4 @@ df_higgsevents.jet_pT.hist(ax=ax, bins=10, range=(0,300), alpha=0.7, label='Higg
 df_ttbarevents.jet_pT.hist(ax=ax, bins=10, range=(0,300), alpha=0.7, label='ttbarevents(bkg)')
 
 ax.legend(frameon=False, prop={'size': 16})
+ax.show()
