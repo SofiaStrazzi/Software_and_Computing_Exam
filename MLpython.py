@@ -41,3 +41,12 @@ tree = uproot.open("ttbarevents.root")[tree_name]
 
 # Create a dataframe with all the variables of the tree I decided to use for the background
 df_ttbarevents = tree.arrays(cols, library="pd")
+
+# I try to have a look at the jet pTs
+fig, ax = plt.subplots(figsize=(5, 5))
+ax.set_xlabel("Jet $p_{T}$ [GeV]")
+
+df_higgsevents.jet_pT.hist(ax=ax, bins=10, range=(0,300), alpha=0.7, label='Higgsevents(sgn)')
+df_ttbarevents.jet_pT.hist(ax=ax, bins=10, range=(0,300), alpha=0.7, label='ttbarevents(bkg)')
+
+ax.legend(frameon=False, prop={'size': 16})
