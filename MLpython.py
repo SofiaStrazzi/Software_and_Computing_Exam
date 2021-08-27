@@ -127,6 +127,10 @@ eval_df = pd.concat([eval_higgs_df, eval_ttbar_df])
 train_df_labels = train_df['target']
 eval_df_labels = eval_df['target']
 
+# I. define the number of epochs that I use to train the method:
+# this is the number of time in which I show the datasets to the alghorithm in order to train it and have in the end the right weights
+Nepochs = 30
+
 # Training inputs preparation
 train_input_fn = make_input_fn(train_df, train_df_labels, num_epochs=Nepochs, shuffle=True)
 eval_input_fn = make_input_fn(eval_df, eval_df_labels, num_epochs=1, shuffle=False)
