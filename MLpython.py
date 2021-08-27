@@ -113,3 +113,16 @@ splitted_ttbar_df = np.array_split(ttbar_df, 2)
 
 train_ttbar_df = splitted_ttbar_df[0]
 eval_ttbar_df = splitted_ttbar_df[1]
+
+
+##### I mix the signal and background events in order to have a full sample for the training of the methods and for the evaluation
+
+# I concatenate the higgs and ttbar samples to mix signal and background events for the training
+train_df = pd.concat([train_higgs_df, train_ttbar_df])
+
+# I concatenate the higgs and ttbar samples to mix signal and background events for the evaluation
+eval_df = pd.concat([eval_higgs_df, eval_ttbar_df])
+
+# I add a target for both the samples that I just defined
+train_df_labels = train_df['target']
+eval_df_labels = eval_df['target']
