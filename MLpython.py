@@ -127,10 +127,20 @@ eval_df = pd.concat([eval_higgs_df, eval_ttbar_df])
 train_df_labels = train_df['target']
 eval_df_labels = eval_df['target']
 
-# I. define the number of epochs that I use to train the method:
+# I define a functionDefines a function constrinputfunction that I use to feed the data to the tensorflow functions
+def constrinputfunction(data_df, label_df, epochs=10, shuffle=True, batch_size=32):
+  def inputfunc():
+    dataset = tf.data.Dataset.from_tensor_slices((dict(data_df), label_df))
+    if shuffle:
+      dataset = dataset.shuffle(1000000)
+    dataset = dataset.batch(batch_size).repeat(epochs)
+    return dataset
+  return inputfunc
+
+# I define the number of epochs that I use to train the method:
 # this is the number of time in which I show the datasets to the alghorithm in order to train it and have in the end the right weights
 Nepochs = 30
 
 # Training inputs preparation
-train_input_fn = make_input_fn(train_df, train_df_labels, num_epochs=Nepochs, shuffle=True)
-eval_input_fn = make_input_fn(eval_df, eval_df_labels, num_epochs=1, shuffle=False)
+train_input_fn = constr_inputfunction(train_df, train_df_labels, epochs=Nepochs, shuffle=True)
+eval_input_fn = constr_inputfunction(eval_df, eval_df_labels, epochs=1, shuffle=False)
