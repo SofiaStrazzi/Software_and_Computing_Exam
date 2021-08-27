@@ -35,7 +35,7 @@ For the python script some packages are required:
 # How to run the code 
 
 Analysis can be generated starting from the script analysis.py, giving on the terminal the command:
-"python3 analysis.py" 
-and then answering to the questions.
 
-On the base of the answers the script will run MLpython.py or MLtmva.C
+"python3 analysis.py" 
+
+and then answering to the questions. On the base of the answers the script will run MLpython.py or MLtmva.C
