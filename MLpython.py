@@ -126,3 +126,7 @@ eval_df = pd.concat([eval_higgs_df, eval_ttbar_df])
 # I add a target for both the samples that I just defined
 train_df_labels = train_df['target']
 eval_df_labels = eval_df['target']
+
+# Training inputs preparation
+train_input_fn = make_input_fn(train_df, train_df_labels, num_epochs=Nepochs, shuffle=True)
+eval_input_fn = make_input_fn(eval_df, eval_df_labels, num_epochs=1, shuffle=False)
