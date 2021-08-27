@@ -24,7 +24,7 @@ All the trees are called EventsTree.
 The program was tested with the version of python 3.8.10 and the version of root 6.20.08.
 
 For the python script some packages are required:
-- tensorflow
+- tensorflow (version 2.4.0)
 - pandas
 - uproot
 - numpy
