@@ -1,6 +1,6 @@
 # Software_and_Computing_Exam
 
-The project contains 3 .root files that contain the datasets (signal, background and mixed data), 2 macros for the Machine Learning analysis (one with PYTHON methods and the other with TMVA based methods), a main macro that let the user decide what to do and on the base of the answer open the different files and finally the macro that was used to cut the datasets in order to have just the leaves of the trees that I needed.
+The project contains 3 .root files with the datasets (signal, background and mixed data), 2 macros for the Machine Learning analysis (one with PYTHON methods and the other with TMVA based methods), a main macro that let the user decide what to do and on the base of the answer open the different files and finally the macro that was used to cut the datasets in order to have just the leaves of the trees that I needed.
 
 All the files can be downloaded from the GitHub repository at the link:
 
