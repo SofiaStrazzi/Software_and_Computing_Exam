@@ -128,7 +128,7 @@ train_df_labels = train_df['target']
 eval_df_labels = eval_df['target']
 
 # I define a functionDefines a function constrinputfunction that I use to feed the data to the tensorflow functions
-def constrinputfunction(data_df, label_df, epochs=10, shuffle=True, batch_size=32):
+def constr_inputfunction(data_df, label_df, epochs=10, shuffle=True, batch_size=32):
   def inputfunc():
     dataset = tf.data.Dataset.from_tensor_slices((dict(data_df), label_df))
     if shuffle:
