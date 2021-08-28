@@ -164,3 +164,6 @@ lin_estimator = tf.estimator.LinearClassifier(column_features=column_features,
 
 # I train the linear estimator that I just defined
 lin_estimator.train(train_input_fn)
+
+# Evaluation of the training with the linear estimator 
+lin_estimator_results = lin_estimator.evaluate(eval_input_fn)
