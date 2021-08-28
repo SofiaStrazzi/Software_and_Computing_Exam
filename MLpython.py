@@ -174,6 +174,8 @@ clear_output()
 # I print on terminal the results of the precedent evaluation
 print(lin_estimator_results)
 
-# I print the number of higgs bosons present in the evaluation sample on the base of the previous results
+# I count the number of higgs bosons present in the evaluation sample on the base of the previous results
 higgs_candidates = probs_challenge[probs_challenge > 0.3].count() 
+
+# I print the number of higgs bosons present in the evaluation sample
 print('The alghorithms found ' + str(higgs_candidates) + ' candidates of higgs bosons into the evaluation dataset')
