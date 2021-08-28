@@ -167,3 +167,9 @@ lin_estimator.train(train_input_fn)
 
 # Evaluation of the training with the linear estimator 
 lin_estimator_results = lin_estimator.evaluate(eval_input_fn)
+
+# I clear the output to avoid problems
+clear_output()
+
+# I print on terminal the results of the precedent evaluation
+print(lin_estimator_results)
