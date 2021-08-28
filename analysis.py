@@ -12,4 +12,11 @@ while (type_of_analysis != 1 and type_of_analysis != 2):
 	
 import os
 
+# The program uses one of the 2 different files depending on the input of the user: 
+# in the case of the TMVA analysis the program also open ROOT framework
+if (type_of_analysis == 1):
+	os.system ("MLpython.py")
+else
+	os.system ("root MLtmva.C")
 
+	
