@@ -15,3 +15,7 @@
 #include "TSystem.h"
 #include "TROOT.h"
 #include "TChain.h"
+
+void MLtmva() {
+
+}
