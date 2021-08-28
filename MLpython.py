@@ -146,12 +146,12 @@ train_input_fn = constr_inputfunction(train_df, train_df_labels, epochs=Nepochs,
 eval_input_fn = constr_inputfunction(eval_df, eval_df_labels, epochs=1, shuffle=False)
 
 # I define the numeric columns and append the features
-Columns = ['lead_jet', 'njet']
+num_columns = ['lead_jet', 'njet']
 column_features = []
 
 # I append the features in the column_features variable
-for name_of_feature in Columns:
-  column_features.append(tf.feature_column.column(name_of_feature, dtype=tf.float32))
+for name_of_feature in num_columns:
+  column_features.append(tf.feature_column.numeric_column(name_of_feature, dtype=tf.float32))
   
 ##### I define the linear estimator that I want to use and its parameters
 lin_estimator = tf.estimator.LinearClassifier(column_features=column_features,
