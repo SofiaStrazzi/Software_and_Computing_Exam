@@ -144,3 +144,11 @@ Nepochs = 30
 # Training inputs preparation
 train_input_fn = constr_inputfunction(train_df, train_df_labels, epochs=Nepochs, shuffle=True)
 eval_input_fn = constr_inputfunction(eval_df, eval_df_labels, epochs=1, shuffle=False)
+
+# I define the numeric columns and append the features
+Columns = ['lead_jet', 'njet']
+column_features = []
+
+# I append the features in the colums's features variable
+for name_of_feature in Columns:
+  column_features.append(tf.column_feature.column(name_of_feature, dtype=tf.float32))
