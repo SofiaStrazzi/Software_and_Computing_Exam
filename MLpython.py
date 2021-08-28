@@ -152,3 +152,15 @@ column_features = []
 # I append the features in the colums's features variable
 for name_of_feature in Columns:
   column_features.append(tf.column_feature.column(name_of_feature, dtype=tf.float32))
+  
+##### I define the linear estimator that I want to use and its parameters
+lin_estimator = tf.estimator.LinearClassifier(column_features=column_features,
+                                           optimizer = tf.keras.optimizers.SGD(
+                                               learning_rate=0.005,
+                                               momentum=0.95,
+                                               nesterov=True
+                                           ),
+                                           model_dir="ongoing/lin0")
+
+# I train the linear estimator that I just defined
+lin_estimator.train(train_input_fn)
