@@ -147,14 +147,14 @@ eval_input_fn = constr_inputfunction(eval_df, eval_df_labels, epochs=1, shuffle=
 
 # I define the numeric columns and append the features
 Columns = ['lead_jet', 'njet']
-column_features = []
+feature_columns = []
 
-# I append the features in the colums's features variable
+# I append the features in the feature_columns variable
 for name_of_feature in Columns:
-  column_features.append(tf.column_feature.column(name_of_feature, dtype=tf.float32))
+  feature_columns.append(tf.column_feature.column(name_of_feature, dtype=tf.float32))
   
 ##### I define the linear estimator that I want to use and its parameters
-lin_estimator = tf.estimator.LinearClassifier(column_features=column_features,
+lin_estimator = tf.estimator.LinearClassifier(feature_columns=feature_columns,
                                            optimizer = tf.keras.optimizers.SGD(
                                                learning_rate=0.005,
                                                momentum=0.95,
