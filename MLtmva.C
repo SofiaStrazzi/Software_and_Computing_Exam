@@ -61,6 +61,17 @@ void MLtmva() {
   // I prepare the Trees for the training and the test
   loader.PrepareTrainingAndTestTree(sgn_cut, bkg_cut, "NTrain_Signal=0:NTrain_Background=0:NTest_Signal=0:NTest_Background=0");
   
+  // I choose 4 different methods for my evaluation and book them
+  
+  factory.BookMethod( &loader, TMVA::Types::kCuts, "Cuts", "!H:!V:FitMethod=MC:EffSel:SampleSize=200000:VarProp=FSmart" );
+   
+  factory.BookMethod( &loader, TMVA::Types::kFisher, "Fisher", "H:!V:Fisher:VarTransform=None:CreateMVAPdfs:PDFInterpolMVAPdf=Spline2:NbinsMVAPdf=50:NsmoothMVAPdf=10" );
+   
+  factory.BookMethod( &loader, TMVA::Types::kMLP, "MLPBNN", "H:!V:NeuronType=tanh:VarTransform=N:NCycles=60:HiddenLayers=N+5:TestRate=5:TrainingMethod=BFGS:UseRegulator" );
+    
+  factory.BookMethod( &loader, TMVA::Types::kBDT, "BDT","NTrees=200:BoostType=AdaBoost");
+
+  
   
     
 
