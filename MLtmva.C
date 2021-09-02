@@ -117,7 +117,10 @@ void MLtmva() {
    delete factory;
    delete dataloader;
   
-  
+   // Launch the GUI for the root macros
+   if (!gROOT->IsBatch()) TMVA::TMVAGui( outfileName );
+
+   return 0;
   
   
 }
