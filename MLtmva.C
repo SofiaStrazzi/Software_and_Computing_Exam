@@ -93,6 +93,13 @@ void MLtmva() {
   // I close the output file to save the evaluations given by TMVA
   TMVAoutput_higgs->Close();
   
+  //I inform the user that TMVA finished the evaluation and the results are written in the output file
+  cout << "MLtmva macro finisced the evaluation fot the inserted datasamples." << endl;
+  cout << "\nThe output of the TMVA evaluation is written in the file: " << outfileName << endl;
+  
+  
+  
+  
   
     
 
