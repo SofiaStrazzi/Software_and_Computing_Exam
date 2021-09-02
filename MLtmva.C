@@ -85,6 +85,8 @@ void MLtmva() {
   // I Evaluate all MVAs. I use the Tree that I prepared before with the test events
   factory.TestAllMethods();
   
+  // I Have an evaluation of the different methods and see a comparison of the performances
+  factory.EvaluateAllMethods();
     
 
 }
