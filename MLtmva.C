@@ -113,4 +113,11 @@ void MLtmva() {
   }
   
   
+   // I delete both the factory and the dataloader
+   delete factory;
+   delete dataloader;
+  
+  
+  
+  
 }
