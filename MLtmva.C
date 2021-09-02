@@ -31,6 +31,14 @@ void MLtmva() {
   
   // I add all the variables to the loader
   TMVA::DataLoader loader("dataevents");
+  
+  loader.AddVariable("EventNumber");
+  loader.AddVariable("MET");
+  loader.AddVariable("jet_pT");
+  loader.AddVariable("jet_eta");
+  loader.AddVariable("jet_phi");
+  loader.AddVariable("jet_m");
+  loader.AddVariable("jet_isB");
     
 
 }
