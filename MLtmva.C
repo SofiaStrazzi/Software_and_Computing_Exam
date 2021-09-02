@@ -28,6 +28,9 @@ void MLtmva() {
   
   // I create a factory TMVAClassification
   TMVA::Factory factory("TMVAClassification", outputFile, "!V:ROC:!Correlations:!Silent:Color:!DrawProgressBar:AnalysisType=Classification");
+  
+  // I add all the variables to the loader
+  TMVA::DataLoader loader("dataevents");
     
 
 }
