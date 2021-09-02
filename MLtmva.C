@@ -90,6 +90,7 @@ void MLtmva() {
   // I Have an evaluation of the different methods and see a comparison of the performances
   factory.EvaluateAllMethods();
   
+  
   // I close the output file to save the evaluations given by TMVA
   TMVAoutput_higgs -> Close();
   
@@ -97,7 +98,10 @@ void MLtmva() {
   cout << "MLtmva macro finisced the evaluation fot the inserted datasamples." << endl;
   cout << "\nThe output of the TMVA evaluation is written in the file: " << outfileName << endl;
   
+  
   //I ask the user if he wants to see the ROC curve
+  char ROCanswer;
+  
   cout << "Do you want to see the ROC curve with all the methods? (y/n) " << endl;
   cin >> ROCanswer;
   
@@ -108,10 +112,5 @@ void MLtmva() {
     canvas -> Draw( "AL" );
   }
   
-
   
-  
-  
-    
-
 }
