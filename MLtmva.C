@@ -53,6 +53,12 @@ void MLtmva() {
   // I add the signal and background trees to the loader
   loader.AddSignalTree(higgsTree, 1.0);
   loader.AddBackgroundTree(ttbarTree, 1.0);
+  
+  // Additional cuts in the case I need them 
+  TCut sgn_cut = "";
+  TCut bkg_cut = "";
+  
+  
     
 
 }
