@@ -45,6 +45,10 @@ void MLtmva() {
 
   // I create a Tree for the higgs (sgn) events
   TTree* ttbarTree;
+
+  // I get the trees for the signal and the background from the respective input files
+  inputFile_higgs->GetObject("signalTree", higgsTree);
+  inputFile_ttbar->GetObject("bkgTree", ttbarTree);
     
 
 }
