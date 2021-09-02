@@ -61,6 +61,7 @@ void MLtmva() {
   // I prepare the Trees for the training and the test
   loader.PrepareTrainingAndTestTree(sgn_cut, bkg_cut, "NTrain_Signal=0:NTrain_Background=0:NTest_Signal=0:NTest_Background=0");
   
+  
   // I choose 4 different methods for my evaluation and book them:
   
   // Rectangular Cuts
@@ -74,6 +75,12 @@ void MLtmva() {
     
   // Adaptive Boost (Boosted Decision Trees)
   factory.BookMethod( &loader, TMVA::Types::kBDT, "BDT","NTrees=200:BoostType=AdaBoost");
+  
+  
+  // Now I give to the factory the commands to train, test, and evaluate the MVAs
+  
+  // I train MVAs using the set of training events that I prepared before
+  factory.TrainAllMethods();
 
   
   
