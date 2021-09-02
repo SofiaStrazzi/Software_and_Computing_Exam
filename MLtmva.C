@@ -58,6 +58,9 @@ void MLtmva() {
   TCut sgn_cut = "";
   TCut bkg_cut = "";
   
+  // I prepare the Trees for the training and the test
+  loader.PrepareTrainingAndTestTree(sgn_cut, bkg_cut, "NTrain_Signal=0:NTrain_Background=0:NTest_Signal=0:NTest_Background=0");
+  
   
     
 
