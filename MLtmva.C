@@ -50,6 +50,7 @@ void MLtmva() {
   inputFile_higgs->GetObject("signalTree", higgsTree);
   inputFile_ttbar->GetObject("bkgTree", ttbarTree);
   
+  // I add the signal and background trees to the loader
   loader.AddSignalTree(higgsTree, 1.0);
   loader.AddBackgroundTree(ttbarTree, 1.0);
     
