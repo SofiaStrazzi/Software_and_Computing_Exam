@@ -40,6 +40,8 @@ void MLtmva() {
   loader.AddVariable("jet_m");
   loader.AddVariable("jet_isB");
   
+  using namespace std;
+  
   // I create a Tree for the higgs (sgn) events
   TTree* higgsTree;
 
