@@ -97,9 +97,16 @@ void MLtmva() {
   cout << "MLtmva macro finisced the evaluation fot the inserted datasamples." << endl;
   cout << "\nThe output of the TMVA evaluation is written in the file: " << outfileName << endl;
   
-  // I plot the ROC curve
-  auto canvas = factory.GetROCCurve ( &loader );
-  canvas -> Draw( "AL" );
+  //I ask the user if he wants to see the ROC curve
+  cout << "Do you want to see the ROC curve with all the methods? (y/n) " << endl;
+  cin >> ROCanswer;
+  
+  if (ROCanswer == 'y')
+  {
+    // I plot the ROC curve
+    auto canvas = factory.GetROCCurve ( &loader );
+    canvas -> Draw( "AL" );
+  }
   
 
   
