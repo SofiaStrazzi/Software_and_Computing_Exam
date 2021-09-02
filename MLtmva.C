@@ -24,10 +24,10 @@ void MLtmva() {
   
   // I create an output file in which I can put the output of the TMVA
   TString outfileName( "OutputTMVA_higgs.root" );
-  TFile* outputFile = TFile::Open(outfileName, "RECREATE");
+  TFile* TMVAoutput_higgs = TFile::Open(outfileName, "RECREATE");
   
   // I create a factory TMVAClassification
-  TMVA::Factory factory("TMVAClassification", outputFile, "!V:ROC:!Correlations:!Silent:Color:!DrawProgressBar:AnalysisType=Classification");
+  TMVA::Factory factory("TMVAClassification", TMVAoutput_higgs, "!V:ROC:!Correlations:!Silent:Color:!DrawProgressBar:AnalysisType=Classification");
   
   // I add all the variables to the loader
   TMVA::DataLoader loader("dataevents");
@@ -89,6 +89,11 @@ void MLtmva() {
   
   // I Have an evaluation of the different methods and see a comparison of the performances
   factory.EvaluateAllMethods();
+  
+  // I close the output file to save the evaluations given by TMVA
+  TMVAoutput_higgs->Close();
+  
+  
     
 
 }
