@@ -23,6 +23,8 @@ All the trees are called EventsTree.
 
 The program was tested with the version of python 3.8.10 and the version of root 6.20.08.
 
+The TMVA package is required (https://root.cern/manual/tmva/)
+
 For the python script some packages are required:
 - tensorflow (version 2.4.0)
 - pandas
