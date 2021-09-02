@@ -25,5 +25,9 @@ void MLtmva() {
   // I create an output file in which I can put the output of the TMVA
   TString outfileName( "OutputTMVA_higgs.root" );
   TFile* outputFile = TFile::Open(outfileName, "RECREATE");
+  
+  // I create a factory TMVAClassification
+  TMVA::Factory factory("TMVAClassification", outputFile, "!V:ROC:!Correlations:!Silent:Color:!DrawProgressBar:AnalysisType=Classification");
+    
 
 }
