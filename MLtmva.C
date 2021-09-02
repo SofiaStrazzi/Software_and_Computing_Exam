@@ -18,8 +18,12 @@
 
 void MLtmva() {
   
-// I open and assign a name to the input .root files
-    auto inputfile_higgs = TFile::Open("higgsevents.root");
-    auto inputFile_ttbar = TFile::Open("ttbarevents.root");
+  // I open and assign a name to the input .root files
+  auto inputfile_higgs = TFile::Open("higgsevents.root");
+  auto inputFile_ttbar = TFile::Open("ttbarevents.root");
+  
+  // I create an output file in which I can put the output of the TMVA
+  TString outfileName( "OutputTMVA_higgs.root" );
+  TFile* outputFile = TFile::Open(outfileName, "RECREATE");
 
 }
