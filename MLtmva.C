@@ -17,5 +17,9 @@
 #include "TChain.h"
 
 void MLtmva() {
+  
+// I open and assign a name to the input .root files
+    auto inputfile_higgs = TFile::Open("higgsevents.root");
+    auto inputFile_ttbar = TFile::Open("ttbarevents.root");
 
 }
