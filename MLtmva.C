@@ -39,6 +39,12 @@ void MLtmva() {
   loader.AddVariable("jet_phi");
   loader.AddVariable("jet_m");
   loader.AddVariable("jet_isB");
+  
+  // I create a Tree for the higgs (sgn) events
+  TTree* higgsTree;
+
+  // I create a Tree for the higgs (sgn) events
+  TTree* ttbarTree;
     
 
 }
