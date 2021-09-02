@@ -77,12 +77,13 @@ void MLtmva() {
   factory.BookMethod( &loader, TMVA::Types::kBDT, "BDT","NTrees=200:BoostType=AdaBoost");
   
   
-  // Now I give to the factory the commands to train, test, and evaluate the MVAs
+  // Now I give to the factory the commands to train all the MVAs and then for the test and evaluation
   
-  // I train MVAs using the set of training events that I prepared before
+  // I train MVAs. I use the training tree that I create before.
   factory.TrainAllMethods();
 
-  
+  // I Evaluate all MVAs. I use the Tree that I prepared before with the test events
+  factory.TestAllMethods();
   
     
 
