@@ -12,8 +12,9 @@ The project contains:
 
 
 All the files can be downloaded from the GitHub repository at the link:
-
 https://github.com/SofiaStrazzi/Software_and_Computing_Exam.git
+
+
 
 # PROJECT DESCRIPTION
 
@@ -30,6 +31,7 @@ they have been cutted through the macro copyleaves in order to obtain smaller fi
 All the trees are called EventsTree. 
 
 
+
 # Version used and required packages
 
 The program was tested with the version of python 3.8.10 and the version of root 6.20.08.
@@ -43,6 +45,7 @@ For the python script some packages are required:
 - numpy
 - matplotlib
 - sklearn
+
 
 
 # How to run the code 
