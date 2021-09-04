@@ -16,7 +16,7 @@ https://github.com/SofiaStrazzi/Software_and_Computing_Exam.git
 
 
 
-# PROJECT DESCRIPTION
+# Project description
 
 Program used to find events containing Higgs bosons decaying to b quark pairs in the LHC data: the program compares the performances of 4 machine learning techniques with TMVA methods and other 4 with PYTHON file. An output file with all the results is created and a ROC curve. On the base of the results, the user can decide which method is the best one and use it to analyse the data, counting the Higgs boson contained in the data sample.
 
