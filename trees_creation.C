@@ -1,6 +1,12 @@
+// In this macro are present different function to copy just some leaves that I need from the original trees 
+// and which reduce the number of total events in each tree in order to make the program faster for the trials
+
 #include <ROOT/RDataFrame.hxx>
 
-//using namespace ROOT::Experimental; // TDF lives here (until ROOT v6.14)
+    //using namespace ROOT::Experimental;
+
+// Functions that copy just the leaves that I intend to use for my analysis in a new .root files with a smaller dimension, but the same number of events
+
 
 int copyleaveshiggs() {
   ROOT::RDataFrame df("Delphes", "higgs.root");
