@@ -116,7 +116,7 @@ void MLtmva() {
   if (!gROOT->IsBatch()) TMVA::TMVAGui(outfileName);
 
   cout << "\n\nNow looking at the output file and at the ROC curve you can decide which method is the best one for the analysis that you want to do." << endl;
-  cout << "THEN TO RUN THE MACRO THAT ANALYZE THE DATA, GIVE TO THE TERMINAL (inside root) THE COMMAND:
+  cout << "THEN TO RUN THE MACRO THAT ANALYZES THE DATA, GIVE TO THE TERMINAL (inside root) THE COMMAND:
           \n\n .x MLtmva_analysis" << endl;
 
    return 0;
