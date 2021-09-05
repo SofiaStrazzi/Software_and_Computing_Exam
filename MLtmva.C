@@ -43,6 +43,7 @@ void MLtmva() {
     cout << "\nERROR: You have to press 1 or 2" << endl;
     cout << "Press 1 to use the whole datasamples (the analysis can take many time) 
           or 2 to use just 10000 events for each datasample\t";
+    cin >> answer;
     }
 
 
