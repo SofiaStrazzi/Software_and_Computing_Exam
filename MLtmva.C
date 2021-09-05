@@ -16,14 +16,16 @@
 #include "TROOT.h"
 #include "TChain.h"
 
+using namespace std;
+
 void MLtmva() {
   
   // I open and assign a name to the input .root files
-  auto inputfile_higgs = TFile::Open("higgsevents.root");
-  auto inputFile_ttbar = TFile::Open("ttbarevents.root");
+  auto inputFile_higgs = TFile::Open("./reducedtrees/reduced_higgsevents.root");
+  auto inputFile_ttbar = TFile::Open("./reducedtrees/reduced_ttbarevents.root");
   
   // I create an output file in which I can put the output of the TMVA
-  TString outfileName( "OutputTMVA_higgs.root" );
+  TString outfileName("OutputTMVA_higgs.root");
   TFile* TMVAoutput_higgs = TFile::Open(outfileName, "RECREATE");
   
   // I create a factory TMVAClassification
@@ -40,8 +42,6 @@ void MLtmva() {
   loader.AddVariable("jet_m");
   loader.AddVariable("jet_isB");
   
-  using namespace std;
-  
   // I create a Tree for the higgs (sgn) events
   TTree* higgsTree;
 
@@ -49,8 +49,8 @@ void MLtmva() {
   TTree* ttbarTree;
 
   // I get the trees for the signal and the background from the respective input files
-  inputFile_higgs->GetObject("signalTree", higgsTree);
-  inputFile_ttbar->GetObject("bkgTree", ttbarTree);
+  inputFile_higgs->GetObject("EventsTree", higgsTree);
+  inputFile_ttbar->GetObject("EventsTree", ttbarTree);
   
   // I add the signal and background trees to the loader
   loader.AddSignalTree(higgsTree, 1.0);
@@ -95,30 +95,25 @@ void MLtmva() {
   TMVAoutput_higgs -> Close();
   
   // I inform the user that TMVA finished the evaluation and the results are written in the output file
-  cout << "MLtmva macro finisced the evaluation fot the inserted datasamples." << endl;
+  cout << "\n\n\n\nMLtmva MACRO FINISHED THE EVALUATION OF THE METHODS FOR THE INSERTED SIGNAL AND BACKGROUND DATASAMPLES.\n" << endl;
   cout << "\nThe output of the TMVA evaluation is written in the file: " << outfileName << endl;
   
   
   //I ask the user if he wants to see the ROC curve
   char ROCanswer;
   
-  cout << "Do you want to see the ROC curve with all the methods? (y/n) " << endl;
+  cout << "\nDo you want to see the ROC curve with all the methods? (y/n) \t";
   cin >> ROCanswer;
   
   if (ROCanswer == 'y')
   {
     // I plot the ROC curve
-    auto canvas = factory.GetROCCurve ( &loader );
+    auto canvas = factory.GetROCCurve (&loader);
     canvas -> Draw( "AL" );
   }
   
-  
-   // I delete both the factory and the dataloader
-   delete factory;
-   delete dataloader;
-  
    // Launch the GUI for the root macros
-   if (!gROOT->IsBatch()) TMVA::TMVAGui( outfileName );
+   if (!gROOT->IsBatch()) TMVA::TMVAGui(outfileName);
 
    return 0;
   
