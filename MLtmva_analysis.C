@@ -35,7 +35,7 @@ void MLtmva_analysis()
  
 
    // I ask to the user to select the chosen method to analyse the data
-   int_t method;
+   int_t method = 0;
 
    cout << "\n\nPRESS 1, 2, 3 OR 4 TO SELECT THE METHOD THAT YOU WANT TO USE TO ANALYZE THE DATA:" << endl << endl;
 
@@ -47,6 +47,22 @@ void MLtmva_analysis()
    		<< "4 Boosted Decision Trees (Adaptive Boost) " << endl;
 
    cin >> method;
+ 
+   // I put a control on the answer of the user
+   while (method != 1 && method != 2 && method != 3 && method != 4
+     {
+     cout << "\n\nPRESS 1, 2, 3 OR 4 TO SELECT THE METHOD THAT YOU WANT TO USE TO ANALYZE THE DATA:" << endl << endl;
+
+     cout << "Press 1, 2, 3 or 4:" << endl;
+
+     cout << "1 Cut optimisation (CutsGA)" << endl
+   		  << "2 Linear Discriminant Analysis (Fisher discriminant)" << endl
+   	  	<< "3 Neural Networks MLPBNN (feed-forward Multilayer Perceptrons" << endl
+   		  << "4 Boosted Decision Trees (Adaptive Boost) " << endl;
+
+     cin >> method;
+     }
+ 
  
     //I ask the user if he wants to use the whole dataset or just a part of the events
    int answer=0;
