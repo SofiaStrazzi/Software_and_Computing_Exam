@@ -1,3 +1,13 @@
+/* 
+This macro compares the performances of 4 different machine learning methods:
+   - Rectangular Cuts;
+   - Fisher Discriminant;
+   - MLPBNN;
+   - Adaptive Boost (Boosted Decision Trees).
+The macro creates an output .root file with the results and shows the ROC curve for the user
+*/
+
+
 #include <iostream>
 #include <string>
 #include <cstdlib>
