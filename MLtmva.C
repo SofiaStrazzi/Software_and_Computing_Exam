@@ -112,8 +112,12 @@ void MLtmva() {
     canvas -> Draw( "AL" );
   }
   
-   // Launch the GUI for the root macros
-   if (!gROOT->IsBatch()) TMVA::TMVAGui(outfileName);
+  // Launch the GUI for the root macros
+  if (!gROOT->IsBatch()) TMVA::TMVAGui(outfileName);
+
+  cout << "\n\nNow looking at the output file and at the ROC curve you can decide which method is the best one for the analysis that you want to do." << endl;
+  cout << "THEN TO RUN THE MACRO THAT ANALYZE THE DATA, GIVE TO THE TERMINAL (inside root) THE COMMAND:
+          \n\n .x MLtmva_analysis" << endl;
 
    return 0;
   
