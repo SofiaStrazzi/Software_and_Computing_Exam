@@ -1,6 +1,6 @@
 /* 
 This macro compares the performances of 4 different machine learning methods:
-    - Cut optimisation (Rectangular cuts)
+    - Cut optimisation (CutsGA)
     - Linear Discriminant Analysis (Fisher discriminant)
     - Neural Networks MLPBNN (feed-forward Multilayer Perceptrons
     - Boosted Decision Trees (Adaptive Boost) 
@@ -76,8 +76,8 @@ void MLtmva() {
   
   // I choose 4 different methods for my evaluation and book them:
   
-  // Cut optimisation (Rectangular cuts)
-  factory.BookMethod( &loader, TMVA::Types::kCuts, "Cuts", "!H:!V:FitMethod=MC:EffSel:SampleSize=200000:VarProp=FSmart");
+  // Cut optimisation (CutsGA)
+  factory.BookMethod( &loader, TMVA::Types::kCuts, "CutsGA", "!H:!V:FitMethod=MC:EffSel:SampleSize=200000:VarProp=FSmart");
    
   // Linear Discriminant Analysis (Fisher discriminant)
   factory.BookMethod( &loader, TMVA::Types::kFisher, "Fisher", "H:!V:Fisher:VarTransform=None:CreateMVAPdfs:PDFInterpolMVAPdf=Spline2:NbinsMVAPdf=50:NsmoothMVAPdf=10");
