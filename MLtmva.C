@@ -34,8 +34,8 @@ void MLtmva() {
   auto inputFile_higgs = TFile::Open("./reducedtrees/reduced_higgsevents.root");
   auto inputFile_ttbar = TFile::Open("./reducedtrees/reduced_ttbarevents.root");
   
-  // I create an output file in which I can put the output of the TMVA
-  TString outfileName("OutputTMVA_higgs.root");
+  // I create an output file in which I can put the output of the TMVA performances comparison
+  TString outfileName("MLtmva_comparison_output.root");
   TFile* TMVAoutput_higgs = TFile::Open(outfileName, "RECREATE");
   
   // I create a factory TMVAClassification
