@@ -47,3 +47,41 @@ void MLtmva_analysis()
    		<< "4 Boosted Decision Trees (Adaptive Boost) " << endl;
 
    cin >> method;
+ 
+    //I ask the user if he wants to use the whole dataset or just a part of the events
+   int answer=0;
+  
+   cout << "\nPress 1 to use the whole datasample (the analysis can take many time) 
+           or 2 to analyze just 10000 events\t";
+   cin >> answer;
+
+   // I put a control on the answer of the user
+   while (answer != 1 && answer !=2)
+     {
+     cout << "\nERROR: You have to press 1 or 2" << endl;
+   	 cout << "\nPress 1 to use the whole datasample (the analysis can take many time) 
+           or 2 to analyze just 10000 events\t";
+     cin >> answer;
+     }
+
+   // I prepare the input tree
+   TFile *input(0);
+
+   // I open and assign a name to the input .root file with the data I want to analyze on the base of the decision of the user
+   if (answer == 1)
+     TString fname = "./trees/dataevents.root";
+  
+   else
+     TString fname = "./reducedtrees/reduced_dataevents.root";
+
+
+   if (!gSystem->AccessPathName( fname )) {
+      input = TFile::Open( fname ); // check if file in local directory exists
+   }
+
+   if (!input) {
+      cout << "ERROR: could not open data file" endl;
+      exit(1);
+   }
+   
+   cout << "\nAnalysing data in the file: " << input->GetName() << endl;
