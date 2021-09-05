@@ -30,12 +30,38 @@ using namespace std;
 
 void MLtmva() {
   
-  // I open and assign a name to the input .root files
-  auto inputFile_higgs = TFile::Open("./reducedtrees/reduced_higgsevents.root");
-  auto inputFile_ttbar = TFile::Open("./reducedtrees/reduced_ttbarevents.root");
+  //I ask the user if he wants to use the whole dataset or just a part of the events
+  int answer=0;
   
-  // I create an output file in which I can put the output of the TMVA performances comparison
-  TString outfileName("MLtmva_comparison_output.root");
+  cout << "\nPress 1 to use the whole datasamples (the analysis can take many time) 
+          or 2 to use just 10000 events for each datasample\t";
+  cin >> answer;
+
+  // I put a control on the answer of the user
+  while (answer != 1 && answer !=2)
+    {
+    cout << "\nERROR: You have to press 1 or 2" << endl;
+    cout << "Press 1 to use the whole datasamples (the analysis can take many time) 
+          or 2 to use just 10000 events for each datasample\t";
+    }
+
+
+  // I open and assign a name to the input .root files on the base of the decision of the user
+  if (answer == 1)
+    {
+    auto inputFile_higgs = TFile::Open("./trees/higgsevents.root");
+    auto inputFile_ttbar = TFile::Open("./trees/ttbarevents.root");
+    }
+  
+  else
+    {
+    auto inputFile_higgs = TFile::Open("./reducedtrees/reduced_higgsevents.root");
+    auto inputFile_ttbar = TFile::Open("./reducedtrees/reduced_ttbarevents.root");
+    }
+
+  
+  // I create an output file in which I can put the output of the TMVA
+  TString outfileName("OutputTMVA_higgs.root");
   TFile* TMVAoutput_higgs = TFile::Open(outfileName, "RECREATE");
   
   // I create a factory TMVAClassification
