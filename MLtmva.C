@@ -1,9 +1,9 @@
 /* 
 This macro compares the performances of 4 different machine learning methods:
-   - Rectangular Cuts;
-   - Fisher Discriminant;
-   - MLPBNN;
-   - Adaptive Boost (Boosted Decision Trees).
+    - Cut optimisation (Rectangular cuts)
+    - Linear Discriminant Analysis (Fisher discriminant)
+    - Neural Networks MLPBNN (feed-forward Multilayer Perceptrons
+    - Boosted Decision Trees (Adaptive Boost) 
 The macro creates an output .root file with the results and shows the ROC curve for the user
 */
 
@@ -76,16 +76,16 @@ void MLtmva() {
   
   // I choose 4 different methods for my evaluation and book them:
   
-  // Rectangular Cuts
+  // Cut optimisation (Rectangular cuts)
   factory.BookMethod( &loader, TMVA::Types::kCuts, "Cuts", "!H:!V:FitMethod=MC:EffSel:SampleSize=200000:VarProp=FSmart");
    
-  // Fisher Discriminant
+  // Linear Discriminant Analysis (Fisher discriminant)
   factory.BookMethod( &loader, TMVA::Types::kFisher, "Fisher", "H:!V:Fisher:VarTransform=None:CreateMVAPdfs:PDFInterpolMVAPdf=Spline2:NbinsMVAPdf=50:NsmoothMVAPdf=10");
    
-  // MLPBNN
+  // Neural Networks MLPBNN (feed-forward Multilayer Perceptrons)
   factory.BookMethod( &loader, TMVA::Types::kMLP, "MLPBNN", "H:!V:NeuronType=tanh:VarTransform=N:NCycles=60:HiddenLayers=N+5:TestRate=5:TrainingMethod=BFGS:UseRegulator");
     
-  // Adaptive Boost (Boosted Decision Trees)
+  // Boosted Decision Trees (Adaptive Boost)
   factory.BookMethod( &loader, TMVA::Types::kBDT, "BDT","NTrees=200:BoostType=AdaBoost");
   
   
