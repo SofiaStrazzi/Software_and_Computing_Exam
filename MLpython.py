@@ -47,7 +47,7 @@ if (n_Events == '1'):
 	tree = uproot.open("./trees/ttbarevents.root")[tree_name]
 	#tree.show() # If I want to print the variables that I'm using
 	
-else:
+if (n_Events == '2'):
 	# I read the .root file containing the first 10000 Higgs events, that is in the directory reducedtrees
 	tree = uproot.open("./reducedtrees/reduced_higgsevents.root")[tree_name]
 	#tree.show() # If I want to print the variables that I'm using
