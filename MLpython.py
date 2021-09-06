@@ -28,16 +28,27 @@ tree_name = "EventsTree" #All the trees in the different files are called Events
 # Define list of variables which the file takes from the trees in order to analyze the data
 cols = ['EventNumber', 'jet_pT', 'jet_eta', 'jet_phi', 'jet_m', 'jet_isB']
 
+# I ask the user to decide if he wants to use the whole datasamples or just the first 10000 events
+print("\n\nPress 1 to use the whole datasamples (the analysis can take many time) or 2 to use just 10000 events for each datasample\t")
+n_Events = input()
+
+# Control on the input typed by the user:
+# if the answer is not consistent, I let ask the user to type a right command
+while (n_Events != '1' and n_Events != '2'):
+	print("\nERROR: the input doesn't corrispond to any option \n")
+	print("\n\nPress 1 to use the whole datasamples (the analysis can take many time) or 2 to use just 10000 events for each datasample\t")
+	n_events = input()
+
 # I read the .root file containing the Higgs events that is in the same directory of the file
 tree = uproot.open("higgsevents.root")[tree_name]
+#tree.show() # If I want to print the variables that I'm using
 
+# I read the .root file containing the top pair production events that is in the same directory of the file
+tree = uproot.open("ttbarevents.root")[tree_name]
 #tree.show() # If I want to print the variables that I'm using
 
 # Create a dataframe with all the variables of the tree I decided to use for the signal
 df_higgsevents = tree.arrays(cols, library="pd")
-
-# I read the .root file containing the top pair production events that is in the same directory of the file
-tree = uproot.open("ttbarevents.root")[tree_name]
 
 # Create a dataframe with all the variables of the tree I decided to use for the background
 df_ttbarevents = tree.arrays(cols, library="pd")
