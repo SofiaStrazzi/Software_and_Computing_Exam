@@ -4,9 +4,10 @@ The project contains:
 - 2 folders, each with 3 .root files with the datasets (signal, background and mixed data):
   - the trees folder contains the 3 data samples with all the events;
   - the reducedtrees folder contains 3 reduced data samples with just the first 10000 events for each leaf, useful to try the program in just few minutes
--  2 macros for the Machine Learning analysis:
+-  2 macros for the Machine Learning methods' performances comparison:
     - one with PYTHON methods;
     - the other with TMVA based methods;
+- a TMVA macro which analyses the inserted data with the chosen method
 - a main macro that let the user decide which of the previous macros wants to open and which machine learning method wants to use to analize data. On the base of the answers this macro opens the different files;
 - finally the macro that was used to cut the datasets in order to have just the leaves of the trees that I needed and reduce the samples.
 
