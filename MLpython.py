@@ -39,13 +39,22 @@ while (n_Events != '1' and n_Events != '2'):
 	print("\n\nPress 1 to use the whole datasamples (the analysis can take many time) or 2 to use just 10000 events for each datasample\t")
 	n_events = input()
 
-# I read the .root file containing the Higgs events that is in the same directory of the file
-tree = uproot.open("higgsevents.root")[tree_name]
-#tree.show() # If I want to print the variables that I'm using
-
-# I read the .root file containing the top pair production events that is in the same directory of the file
-tree = uproot.open("ttbarevents.root")[tree_name]
-#tree.show() # If I want to print the variables that I'm using
+if (n_Events == '1'):
+	# I read the .root file containing all Higgs events, that is in the directory trees
+	tree = uproot.open("./trees/higgsevents.root")[tree_name]
+	#tree.show() # If I want to print the variables that I'm using
+	# I read the .root file containing all top pair production events, that is in the directory trees
+	tree = uproot.open("./trees/ttbarevents.root")[tree_name]
+	#tree.show() # If I want to print the variables that I'm using
+	
+else:
+	# I read the .root file containing the first 10000 Higgs events, that is in the directory reducedtrees
+	tree = uproot.open("./reducedtrees/reduced_higgsevents.root")[tree_name]
+	#tree.show() # If I want to print the variables that I'm using
+	# I read the .root file containing the first 10000 top pair production events, that is in the directory reducedtrees
+	tree = uproot.open("./reducedtrees/reduced_ttbarevents.root")[tree_name]
+	#tree.show() # If I want to print the variables that I'm using
+	
 
 # Create a dataframe with all the variables of the tree I decided to use for the signal
 df_higgsevents = tree.arrays(cols, library="pd")
@@ -166,12 +175,12 @@ for feature_name in num_columns:
   
 ##### I define the linear estimator that I want to use and its parameters
 lin_estimator = tf.estimator.LinearClassifier(feature_columns=feature_columns,
-                                           optimizer = tf.keras.optimizers.SGD(
+                                               optimizer = tf.keras.optimizers.SGD(
                                                learning_rate=0.005,
                                                momentum=0.95,
                                                nesterov=True
-                                           ),
-                                           model_dir="ongoing/lin0")
+                                             ),
+                                              model_dir="ongoing/lin0")
 
 # I train the linear estimator that I just defined
 lin_estimator.train(train_input_fn)
