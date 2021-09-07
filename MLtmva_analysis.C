@@ -115,23 +115,23 @@ void MLtmva_analysis()
 
    // Create a set of variables and declare them to the reader
 
-   //Float_t EventNumber, MET, jet_pT, jet_eta, jet_phi, jet_m, jet_isB;
+   Float_t EventNumber, MET, jet_pT, jet_eta, jet_phi, jet_m, jet_isB;
 
-   Long64_t *EventNumber=0;
-   vector<float> *MET=0, *jet_pT=0, *jet_eta=0, *jet_phi=0, *jet_m=0;
-   vector<int> *jet_isB=0;
+   //Long64_t *EventNumber=0;
+   //vector<float> *MET=0, *jet_pT=0, *jet_eta=0, *jet_phi=0, *jet_m=0;
+   //vector<int> *jet_isB=0;
    
    // Create the Reader object
    TMVA::Reader *reader = new TMVA::Reader( "!Color:!Silent" );
 
    // I pass all the variables to the reader
-   reader -> AddVariable("EventNumber", &(EventNumber[0]));
-   reader -> AddVariable("MET", &(MET[0]));
-   reader -> AddVariable("jet_pT", &(jet_pT[0]));
-   reader -> AddVariable("jet_eta", &(jet_eta[0]));
-   reader -> AddVariable("jet_phi", &(jet_phi[0]));
-   reader -> AddVariable("jet_m", &(jet_m[0]));
-   reader -> AddVariable("jet_isB", (&jet_isB[0]));
+   reader -> AddVariable("EventNumber", &EventNumber);
+   reader -> AddVariable("MET", &MET);
+   reader -> AddVariable("jet_pT", &jet_pT);
+   reader -> AddVariable("jet_eta", &jet_eta);
+   reader -> AddVariable("jet_phi", &jet_phi);
+   reader -> AddVariable("jet_m", &jet_m);
+   reader -> AddVariable("jet_isB", &jet_isB);
  
    delete EventNumber, MET, jet_pT, jet_eta, jet_phi, jet_m, jet_isB;
           
@@ -193,13 +193,13 @@ void MLtmva_analysis()
   
  
    // I set branch adresses
-   theTree->SetBranchAddress("EventNumber", &(EventNumber[0]));
-   theTree->SetBranchAddress("MET", &(MET[0]));
-   theTree->SetBranchAddress("jet_pT", &(jet_pT[0]));
-   theTree->SetBranchAddress("jet_eta", &(jet_eta[0]));
-   theTree->SetBranchAddress("jet_phi", &(jet_phi[0]));
-   theTree->SetBranchAddress("jet_m", &(jet_m[0]));
-   theTree->SetBranchAddress("jet_isB", &(jet_isB[0])); 
+   theTree->SetBranchAddress("EventNumber", &EventNumber);
+   theTree->SetBranchAddress("MET", &MET);
+   theTree->SetBranchAddress("jet_pT", &jet_pT);
+   theTree->SetBranchAddress("jet_eta", &jet_eta);
+   theTree->SetBranchAddress("jet_phi", &jet_phi);
+   theTree->SetBranchAddress("jet_m", &jet_m);
+   theTree->SetBranchAddress("jet_isB", &jet_isB); 
           
    // Efficiency calculator for cutsGA method
    Int_t nSelCutsGA = 0;
