@@ -139,3 +139,20 @@ void MLtmva_analysis()
    reader -> AddVariable("jet_phi", &jet_phi);
    reader -> AddVariable("jet_m", &jet_m);
    reader -> AddVariable("jet_isB", &jet_isB);
+          
+   // I assign the names to the methods
+   TString methodString;
+
+   if (method == 1)   
+         methodString = "CutsGA";
+
+   if (method == 2)   
+         methodString = "Fisher";
+
+   if (method == 3)   
+         methodString = "MLPBNN";
+
+   if (method == 4)   
+         methodString = "BDT";
+          
+          
