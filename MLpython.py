@@ -258,7 +258,6 @@ print(predictions_data)
 print("\n\n")
 
 data_results = list(lin_estimator.predict(data_input_fn))
-print(data_results)
 print("\n\n")
 
 
