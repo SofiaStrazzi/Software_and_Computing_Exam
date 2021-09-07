@@ -1,4 +1,4 @@
- // This macro analyse the data with the method chosen by the user
+ // This macro analyse the data with the method chosen by the user in TMVA:
    // Cut optimisation (CutsGA)
    // Linear Discriminant Analysis (Fisher discriminant)
    // Neural Networks MLPBNN (feed-forward Multilayer Perceptrons
