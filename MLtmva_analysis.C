@@ -271,5 +271,10 @@ void MLtmva_analysis()
          rarityHistBdt->Fill( reader->GetRarity ( "BDT method" ));
          }
    	}
+          
+   // Get elapsed time
+   sw.Stop();
+   cout << "--- End of event loop: "; 
+   sw.Print();
 
           
