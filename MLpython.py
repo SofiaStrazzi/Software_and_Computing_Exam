@@ -1,4 +1,4 @@
-# Program to find events containing Higgs bosons decaying to b quark pairs in the LHC data
+# Program that evaluate the performances of a LinearEstimator on data containing Higgs bosons decaying to b quark pairs in the LHC data
 
 # Three different datasets are used to test the program:
 #    - Higgs bosons (higgsevents.root) which contains the signal events
