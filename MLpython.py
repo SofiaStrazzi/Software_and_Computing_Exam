@@ -234,7 +234,7 @@ lin_estimator = tf.estimator.LinearClassifier(feature_columns=feature_columns,
                                                momentum=0.95,
                                                nesterov=True
                                              ),
-                                              model_dir="ongoing/lin0")
+                                              model_dir="LinearClassifier_Output/lin0")
 
 # I train the linear estimator that I just defined
 lin_estimator.train(train_input_fn)
