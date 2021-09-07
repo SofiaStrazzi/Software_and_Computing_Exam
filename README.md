@@ -21,7 +21,7 @@ https://github.com/SofiaStrazzi/Software_and_Computing_Exam.git
 
 # Project description
 
-Program used to find events containing Higgs bosons decaying to b quark pairs in the LHC data: the program shows an evaluation of a linear estimator in the PYTHON file and compares the performances of 4 machine learning techniques with TMVA methods. An output file with all the results is created and a ROC curve. On the base of the results, the user can decide which method is the best one and use it to analyse the data.
+Program used to analyse events containing Higgs bosons decaying to b quark pairs in the LHC data: the program shows an evaluation of a linear estimator in the PYTHON file and compares the performances of 4 machine learning techniques with TMVA methods. An output file with all the results is created and a ROC curve. On the base of the results, the user can decide which method is the best one and use it to analyse the data.
 
 Three different datasets are used to test the program:
 - Higgs bosons (higgsevents.root) which contains the signal events;
@@ -35,10 +35,10 @@ All the trees are called EventsTree.
 
 The programs gives in as output:
 - a trainingevents folder containing the TMVA weights for the different methods;
-- a LinearClassifier_Output folder containing the linear estimator output information
-- a .root file called MLtmva_comparison_output that contains output of the comparison of the 4 different methods (CutsGA, Fisher, NnBnn and BDT)
-- a .root file called MLtmva_analysis_output that contains the output of the real data analysis with the chosen method
-- During the different steps the program asks the user if he wants to see some plots in real time containing for example some of the distributions or the ROC curves or open the GUI with some resulst of training and test
+- a LinearClassifier_Output folder containing the linear estimator output information;
+- a .root file called MLtmva_comparison_output that contains output of the comparison of the 4 different methods (CutsGA, Fisher, NnBnn and BDT);
+- a .root file called MLtmva_analysis_output that contains the output of the real data analysis with the chosen method;
+- During the different steps the program asks the user if he wants to see some plots in real time containing for example some of the distributions or the ROC curves or open the GUI with some resulst of training and test.
 
 
 
@@ -65,4 +65,4 @@ Analysis can be generated starting from the script analysis.py, giving on the te
 
 "python3 analysis.py" 
 
-and then answering to the questions. On the base of the answers the script will run MLpython.py or MLtmva.C.
+and then answering to the questions. On the base of the answers the script will run MLpython.py or MLtmva.C and then MLtmva_analysis.C
