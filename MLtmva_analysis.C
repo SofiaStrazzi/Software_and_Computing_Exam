@@ -308,5 +308,22 @@ void MLtmva_analysis()
          cout << "--- -------------------------------------------------------------" << endl;
       }
    }
+          
+          
+   // Write histograms
+   // I create an output file in which I can put the output of the TMVA performances comparison
+   TString outfileName("MLtmva_analysis_output.root");
+   TFile* target = TFile::Open(outfileName, "RECREATE");
+
+  	//TFile* target  = new TFile( "MLtmva_analysis:output.root","RECREATE" );
+
+   if (method == 2)   
+   		histFi -> Write();
+
+   if (method == 3)   
+   		histNnbnn -> Write();
+
+   if (method == 4)   
+   		histBdt -> Write();
 
           
