@@ -20,6 +20,8 @@ from matplotlib import pyplot as plt
 from sklearn.metrics import roc_curve
 from IPython.display import clear_output
 clear_output()
+import logging
+logging.getLogger("tensorflow").setLevel(logging.ERROR)
 tf.autograph.set_verbosity(0)
 
 # Print the version of TensorFlow
