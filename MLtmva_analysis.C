@@ -178,7 +178,8 @@ void MLtmva_analysis()
    TTree* theTree = (TTree*)input->Get("EventsTree");
   
    Long64_t *EventNumber2=0;
-   vector<float> *MET2=0, *jet_pT2=0, *jet_eta2=0, *jet_phi2=0, *jet_m2=0;
+   Float_t *MET2=0
+   vector<float> *jet_pT2=0, *jet_eta2=0, *jet_phi2=0, *jet_m2=0;
    vector<int> *jet_isB2=0;
  
    // I set branch adresses
