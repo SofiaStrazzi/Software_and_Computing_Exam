@@ -37,14 +37,14 @@ tree_name = "EventsTree" #All the trees in the different files are called Events
 cols = ['EventNumber', 'jet_pT', 'jet_eta', 'jet_phi', 'jet_m', 'jet_isB']
 
 # I ask the user to decide if he wants to use the whole datasamples or just the first 10000 events
-print("\n\nPress 1 to use the whole datasamples (the analysis can take many time) or 2 to use just 10000 events for each datasample\t")
+print("\n\nPress 1 to use the whole datasamples (the analysis can take many time)\n or 2 to use just 10000 events for each datasample\t")
 n_Events = input()
 
 # Control on the input typed by the user:
 # if the answer is not consistent, I let ask the user to type a right command
 while (n_Events != '1' and n_Events != '2'):
 	print("\nERROR: the input doesn't corrispond to any option \n")
-	print("\n\nPress 1 to use the whole datasamples (the analysis can take many time) or 2 to use just 10000 events for each datasample to try the program\t")
+	print("\n\nPress 1 to use the whole datasamples (the analysis can take many time)\n or 2 to use just 10000 events for each datasample to try the program\t")
 	n_events = input()
 
 if (n_Events == '1'):
@@ -83,14 +83,14 @@ df_dataevents = tree.arrays(cols, library="pd")
 ##### I can have a look to some distributions in order to have an idea of the data that I have
 
 # I ask the user if he wants to have a look to some distributions
-print("\n\nDo you want to have a look to some distributions to have an idea of the data before to start? (y/n)\t")
+print("\n\nDo you want to have a look to some distributions\n to have an idea of the data before to start? (y/n)\t")
 distrib_plots = input()
 
 # Control on the input typed by the user:
 # if the answer is not consistent, I let ask the user to type a right command
 while (distrib_plots != 'y' and distrib_plots != 'n'):
 	print("\nERROR: the input doesn't corrispond to any option \n")
-	print("\n\nDo you want to have a look to some distributions to have an idea of the data before to start? (y/n)\t")
+	print("\n\nDo you want to have a look to some distributions\n to have an idea of the data before to start? (y/n)\t")
 	distrib_plots = input()
 
 	
