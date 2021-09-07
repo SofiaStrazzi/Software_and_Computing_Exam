@@ -253,8 +253,12 @@ print(lin_estimator_results)
 print("\n\n--------------------------------------------------------------\n\n")
 
 print("Predictions for the real sample \n")
-predictions = lin_estimator.predict(data_input_fn)
+# Evaluation of the training with the linear estimator 
+lin_estimator_data = lin_estimator.evaluate(data_input_fn)
+clear_output()
+print(lin_estimator_data)
+#predictions = lin_estimator.predict(data_input_fn)
 
 
-for i in range(50):
-	print(list(predictions)[0])
+#for i in range(50):
+	#print(list(predictions)[0])
