@@ -180,26 +180,12 @@ void MLtmva_analysis()
           
    // Book histogram for probability for each method
    TH1F *probHistFi(0), *rarityHistFi(0);
-   TH1F *probHistNnbnn(0), *rarityHistNnbnn(0);
-   TH1F *probHistBdt(0), *rarityHistBdt(0);
 
    if (method == 2) 
    	  {
       probHistFi   = new TH1F( "MVA_Fisher_Proba", "MVA_Fisher_Proba", nbin, 0, 1 );
       rarityHistFi = new TH1F( "MVA_Fisher_Rarity", "MVA_Fisher_Rarity", nbin, 0, 1 );
    	  }
-
-   if (method == 3) 
-      {
-      probHistNnbnn   = new TH1F( "MVA_Nnbnn_Proba", "MVA_Nnbnn_Proba", nbin, 0, 1 );
-      rarityHistNnbnn = new TH1F( "MVA_Nnbnn_Rarity", "MVA_Nnbnn_Rarity", nbin, 0, 1 );
-      }
-
-   if (method == 4) 
-      {
-      probHistBdt   = new TH1F( "MVA_Bdt_Proba", "MVA_Bdt_Proba",  nbin, 0, 1 );
-      rarityHistBdt = new TH1F( "MVA_Bdt_Rarity", "MVA_Bdt_Rarity", nbin, 0, 1 );
-      }
    
           
    // Event loop
@@ -254,18 +240,6 @@ void MLtmva_analysis()
       	 {
          probHistFi  ->Fill( reader->GetProba ( "Fisher method" ));
          rarityHistFi->Fill( reader->GetRarity ( "Fisher method" ));
-         }
-
-      if (method == 3)   
-         {
-         probHistNnbnn  ->Fill( reader->GetProba ( "MLPBNN method" ));
-         rarityHistNnbnn->Fill( reader->GetRarity ( "MLPBNN method" ));
-         }
-
-      if (method == 4)   
-         {
-         probHistBdt  ->Fill( reader->GetProba ( "BDT method" ));
-         rarityHistBdt->Fill( reader->GetRarity ( "BDT method" ));
          }
    	}
           
@@ -323,6 +297,7 @@ void MLtmva_analysis()
    if (method == 4)   
    		histBdt -> Write();
 
+ 
    // Write also probability histograms
    if (method == 2) 
    		{ 
@@ -331,22 +306,7 @@ void MLtmva_analysis()
    		if (rarityHistFi != 0) 
    				rarityHistFi->Write(); 
    		}
-
-   if (method == 3) 
-   		{ 
-   		if (probHistNnbnn != 0) 
-   				probHistNnbnn->Write(); 
-   		if (rarityHistNnbnn != 0) 
-   				rarityHistNnbnn->Write(); 
-   		}
-
-   if (method == 4) 
-   		{ 
-   		if (probHistBdt != 0) 
-   				probHistBdt->Write(); 
-   		if (rarityHistBdt != 0) 
-   				rarityHistBdt->Write(); 
-   		}
+ 
           
    // I close the target
    target->Close();
