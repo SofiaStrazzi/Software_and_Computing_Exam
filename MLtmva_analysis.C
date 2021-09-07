@@ -193,13 +193,13 @@ void MLtmva_analysis()
   
  
    // I set branch adresses
-   theTree->SetBranchAddress("EventNumber", &EventNumber);
-   theTree->SetBranchAddress("MET", &MET);
-   theTree->SetBranchAddress("jet_pT", &jet_pT);
-   theTree->SetBranchAddress("jet_eta", &jet_eta);
-   theTree->SetBranchAddress("jet_phi", &jet_phi);
-   theTree->SetBranchAddress("jet_m", &jet_m);
-   theTree->SetBranchAddress("jet_isB", &jet_isB); 
+   theTree->SetBranchAddress("EventNumber", &(EventNumber[0]));
+   theTree->SetBranchAddress("MET", &(MET[0]));
+   theTree->SetBranchAddress("jet_pT", &(jet_pT[0]));
+   theTree->SetBranchAddress("jet_eta", &(jet_eta[0]));
+   theTree->SetBranchAddress("jet_phi", &(jet_phi[0]));
+   theTree->SetBranchAddress("jet_m", &(jet_m[0]));
+   theTree->SetBranchAddress("jet_isB", &(jet_isB[0])); 
           
    // Efficiency calculator for cutsGA method
    Int_t nSelCutsGA = 0;
