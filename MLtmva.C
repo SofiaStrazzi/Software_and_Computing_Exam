@@ -138,7 +138,7 @@ void MLtmva() {
   //I ask the user if he wants to see the ROC curve
   char ROCanswer;
   
-  cout << "\nDo you want to see the ROC curve with all the methods? (y/n) \t";
+  cout << "\nDo you want to see the ROC curve with all the methods and to open the TMVAGui to see some plots about training and test? (y/n) \t";
   cin >> ROCanswer;
   
   if (ROCanswer == 'y')
