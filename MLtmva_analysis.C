@@ -181,4 +181,28 @@ void MLtmva_analysis()
    		histBdt   = new TH1F( "MVA_BDT", "MVA_BDT", nbin, -0.8, 0.8 );
           
           
+   // Book histogram for probability for each method
+   TH1F *probHistFi(0), *rarityHistFi(0);
+   TH1F *probHistNnbnn(0), *rarityHistNnbnn(0);
+   TH1F *probHistBdt(0), *rarityHistBdt(0);
+
+   if (method == 2) 
+   	  {
+      probHistFi   = new TH1F( "MVA_Fisher_Proba", "MVA_Fisher_Proba", nbin, 0, 1 );
+      rarityHistFi = new TH1F( "MVA_Fisher_Rarity", "MVA_Fisher_Rarity", nbin, 0, 1 );
+   	  }
+
+   if (method == 3) 
+      {
+      probHistNnbnn   = new TH1F( "MVA_Nnbnn_Proba", "MVA_Nnbnn_Proba", nbin, 0, 1 );
+      rarityHistNnbnn = new TH1F( "MVA_Nnbnn_Rarity", "MVA_Nnbnn_Rarity", nbin, 0, 1 );
+      }
+
+   if (method == 4) 
+      {
+      probHistBdt   = new TH1F( "MVA_Bdt_Proba", "MVA_Bdt_Proba",  nbin, 0, 1 );
+      rarityHistBdt = new TH1F( "MVA_Bdt_Rarity", "MVA_Bdt_Rarity", nbin, 0, 1 );
+      }
+          
+          
           
