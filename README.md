@@ -4,13 +4,14 @@ The project contains:
 - 2 folders, each with 3 .root files with the datasets (signal, background and mixed data):
   - the trees folder contains the 3 data samples with all the events;
   - the reducedtrees folder contains 3 reduced data samples with just the first 10000 events for each leaf, useful to try the program in just few minutes
-- another folder containing an example of the output results by the different macros
+- another folder containing an example of the output results by the different macros;
 -  2 macros for the Machine Learning methods' performances evaluation and comparison:
     - one with PYTHON: here a linear classifier is evaluated on the data sample;
     - the other with TMVA based methods: a comparison between 4 methods is done;
 - a TMVA macro which analyses the inserted data with the chosen method
 - a main macro that let the user decide which of the previous macros wants to open and which machine learning method wants to use to analize data. On the base of the answers this macro opens the different files;
-- finally the macro that was used to cut the datasets in order to have just the leaves of the trees that I needed and reduce the samples.
+- the macro that was used to cut the datasets in order to have just the leaves of the trees that I needed and reduce the samples;
+- a .yml file containing the environment that I used to run the python scripts.
 
 
 All the files can be downloaded from the GitHub repository at the link:
@@ -48,7 +49,7 @@ For the python script some packages are required:
 - matplotlib
 - sklearn
 
-The python script is used in a given environment. A txt file containing it is present between the project files
+The python script is used in a given environment. A .yml file containing the used environment is present between the project files.
 
 
 # How to run the code 
