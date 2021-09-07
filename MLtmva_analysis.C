@@ -326,4 +326,28 @@ void MLtmva_analysis()
    if (method == 4)   
    		histBdt -> Write();
 
+   // Write also probability histograms
+   if (method == 2) 
+   		{ 
+   		if (probHistFi != 0) 
+   				probHistFi->Write(); 
+   		if (rarityHistFi != 0) 
+   				rarityHistFi->Write(); 
+   		}
+
+   if (method == 3) 
+   		{ 
+   		if (probHistNnbnn != 0) 
+   				probHistNnbnn->Write(); 
+   		if (rarityHistNnbnn != 0) 
+   				rarityHistNnbnn->Write(); 
+   		}
+
+   if (method == 4) 
+   		{ 
+   		if (probHistBdt != 0) 
+   				probHistBdt->Write(); 
+   		if (rarityHistBdt != 0) 
+   				rarityHistBdt->Write(); 
+   		}
           
