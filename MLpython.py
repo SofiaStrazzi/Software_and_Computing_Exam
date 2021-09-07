@@ -199,7 +199,7 @@ feature_columns = []
 # I append the features in the feature_columns variable
 for feature_name in num_columns:
   feature_columns.append(tf.feature_column.numeric_column(feature_name, dtype=tf.float32))
-  
+
 ##### I define the linear estimator that I want to use and its parameters
 lin_estimator = tf.estimator.LinearClassifier(feature_columns=feature_columns,
                                                optimizer = tf.keras.optimizers.SGD(
@@ -219,6 +219,9 @@ lin_estimator_results = lin_estimator.evaluate(eval_input_fn)
 clear_output()
 
 # I print on terminal the results of the precedent evaluation
+print("\n\n--------------------------------------------------------------\n")
+print("\t LinearClassifier OUTPUT \n")
+print("--------------------------------------------------------------\n\n")
 print(lin_estimator_results)
 
 # I count the number of higgs bosons present in the evaluation sample on the base of the previous results
