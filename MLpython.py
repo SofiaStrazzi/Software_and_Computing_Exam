@@ -252,10 +252,14 @@ print("--------------------------------------------------------------\n\n")
 print(lin_estimator_results)
 print("\n\n--------------------------------------------------------------\n\n")
 
-print(" Creating an object for the predictions \n")
-predictions_data = lin_estimator.predict(data_input_fn)
-print(list(predictions_data))
+print("Predictions for the real sample \n")
+#predictions_data = lin_estimator.predict(data_input_fn)
+for single_prediction in lin_estimator.predict(data_input_fn):
+    predicted_class = single_prediction['class']
+    probability = single_prediction['probability']
 print("\n\n")
+print('For the predicted class ' + str(predicted_class) + ' the probability is ' + str(probability))
+
 
 
 
