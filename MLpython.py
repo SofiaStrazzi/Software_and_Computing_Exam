@@ -253,15 +253,13 @@ print(lin_estimator_results)
 print("\n\n--------------------------------------------------------------\n\n")
 
 print("Predictions for the real sample \n")
-#predictions_data = lin_estimator.predict(data_input_fn)
+predictions = lin_estimator.predict(data_input_fn)
 
 
-predictions = list(lin_estimator.predict(input_fn=data_input_fn))
-predicted_classes = [p["classes"] for p in predictions]
-
-print(
-    "New Samples, Class Predictions:    {}\n"
-    .format(predicted_classes))
+for i in range(300):
+	print(list(predictions)[0])
+	print("\n")
+	
 
 
 
