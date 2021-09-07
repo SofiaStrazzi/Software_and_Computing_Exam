@@ -200,14 +200,19 @@ feature_columns = []
 for feature_name in num_columns:
   feature_columns.append(tf.feature_column.numeric_column(feature_name, dtype=tf.float32))
 
+
+##### LinearClassifier
+print("\n\n---- preparing LinearClassifier \n\n")
 ##### I define the linear estimator that I want to use and its parameters
-lin_estimator = tf.estimator.LinearClassifier(feature_columns=feature_columns,
-                                               optimizer = tf.keras.optimizers.SGD(
-                                               learning_rate=0.005,
-                                               momentum=0.95,
-                                               nesterov=True
-                                             ),
-                                              model_dir="ongoing/lin0")
+
+lin_estimator = tf.estimator.LinearClassifier(
+					        feature_columns=feature_columns,
+                                                optimizer = tf.keras.optimizers.SGD(
+                                                	learning_rate=0.005,
+                                                	momentum=0.95,
+                                                	nesterov=True
+                                                	),
+                                                model_dir="ongoing/lin0")
 
 # I train the linear estimator that I just defined
 lin_estimator.train(train_input_fn)
@@ -223,6 +228,47 @@ print("\n\n--------------------------------------------------------------\n")
 print("\t LinearClassifier OUTPUT \n")
 print("--------------------------------------------------------------\n\n")
 print(lin_estimator_results)
+
+
+
+##### BoostedTreesClassifier
+print("\n\n---- preparing BoostedTreesClassifier \n\n")
+##### I define the BoostedTreesClassifier that I want to use and its parameters
+
+boostedtrees_estimator = tf.estimator.BoostedTreesClassifier(
+    						feature_columns=feature_columns,
+						n_batches_per_layer,
+						model_dir="ongoing/BTC", 
+						n_classes=2,
+    						weight_column=None, 
+						label_vocabulary=None, 
+						n_trees=100, 
+						max_depth=6,
+    						learning_rate=0.05, 
+						l1_regularization=0.0, 
+						l2_regularization=0.0,
+    						tree_complexity=0.0, 
+						min_node_weight=0.0, 
+						config=None, 
+						center_bias=False,
+   						pruning_mode='none', 
+						quantile_sketch_epsilon=0.01,
+    						train_in_memory=False
+						)
+
+# I train the BoostedTreesClassifier estimator that I just defined
+boostedtrees_estimator.train(train_input_fn)
+
+# Evaluation of the training with the BoostedTreesClassifier estimator
+boostedtrees_estimator_results = boostedtrees_estimator.evaluate(eval_input_fn)
+
+# I clear the output to avoid problems
+clear_output()
+
+print("\n\n--------------------------------------------------------------\n")
+print("\t BoostedTreesClassifier OUTPUT \n")
+print("--------------------------------------------------------------\n\n")
+print(boostedtrees_estimator_results)
 
 # I count the number of higgs bosons present in the evaluation sample on the base of the previous results
 # higgs_candidates = probs_challenge[probs_challenge > 0.3].count() 
