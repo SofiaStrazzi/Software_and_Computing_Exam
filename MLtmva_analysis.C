@@ -65,16 +65,14 @@ void MLtmva_analysis()
     //I ask the user if he wants to use the whole dataset or just a part of the events
    int answer=0;
   
-   cout << "\nPress 1 to use the whole datasample (the analysis can take many time) 
-           or 2 to analyze just 10000 events\t";
+   cout << "\nPress 1 to use the whole datasample (the analysis can take many time) or 2 to analyze just 10000 events to try the program\t";
    cin >> answer;
 
    // I put a control on the answer of the user
    while (answer != 1 && answer !=2)
      {
      cout << "\nERROR: You have to press 1 or 2" << endl;
-   	 cout << "\nPress 1 to use the whole datasample (the analysis can take many time) 
-           or 2 to analyze just 10000 events\t";
+     cout << "\nPress 1 to use the whole datasample (the analysis can take many time) or 2 to analyze just 10000 events to try the program\t";
      cin >> answer;
      }
 
