@@ -110,6 +110,9 @@ if (distrib_plots == 'y'):
 leading_jet_higgs = df_higgsevents.jet_pT.xs(0, level='subentry')
 leading_jet_ttbar = df_ttbarevents.jet_pT.xs(0, level='subentry')
 
+# I do the same for the real data
+leading_jet_data = df_dataevents.jet_pT.xs(0, level='subentry')
+
 fig, ax2 = plt.subplots(figsize=(5, 5))
 ax2.set_xlabel("Leading jet $p_{T}$ [GeV]")
 
@@ -136,6 +139,9 @@ ax3.legend(frameon=False, prop={'size': 16})
 
 if (distrib_plots == 'y'):
 	plt.show()
+	
+# I do the same for the real data for later
+njet_data = df_dataevents.groupby('entry').size()
 
 
 ##### I create a dataframe in which I put all the information that I want to exploit:
@@ -166,6 +172,12 @@ splitted_ttbar_df = np.array_split(ttbar_df, 2)
 train_ttbar_df = splitted_ttbar_df[0]
 eval_ttbar_df = splitted_ttbar_df[1]
 
+# I do the same for the real data without the splitting
+data_frame = { 'lead_jet': leading_jet_data, 'njet': njet_data }
+data_df = pd.DataFrame(data_frame)
+
+# I add a target for the training of the Machine Learning methods
+data_df['target']=2
 
 ##### I mix the signal and background events in order to have a full sample for the training of the methods and for the evaluation
 
@@ -178,6 +190,9 @@ eval_df = pd.concat([eval_higgs_df, eval_ttbar_df])
 # I add a target for both the samples that I just defined
 train_df_labels = train_df['target']
 eval_df_labels = eval_df['target']
+
+# I do the same for the real data
+data_df_labels = data_df['target']
 
 # I define a functionDefines a function constrinputfunction that I use to feed the data to the tensorflow functions
 def constr_inputfunction(data_df, label_df, epochs=10, shuffle=True, batch_size=32):
@@ -196,6 +211,9 @@ Nepochs = 30
 # Training inputs preparation
 train_input_fn = constr_inputfunction(train_df, train_df_labels, epochs=Nepochs, shuffle=True)
 eval_input_fn = constr_inputfunction(eval_df, eval_df_labels, epochs=1, shuffle=False)
+
+# I do the same for the real data
+data_input_fn = constr_inputfunction(data_df, data_df_labels, epochs=1, shuffle=False)
 
 # I define the numeric columns and append the features
 num_columns = ['lead_jet', 'njet']
