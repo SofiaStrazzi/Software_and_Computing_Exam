@@ -276,5 +276,37 @@ void MLtmva_analysis()
    sw.Stop();
    cout << "--- End of event loop: "; 
    sw.Print();
+          
+          
+   // Get efficiency for cuts classifier
+   if (method == 1) 
+   		cout << "--- Efficiency for CutsGA method: " << double(nSelCutsGA)/theTree->GetEntries()
+             << " (for a required signal efficiency of " << effS << ")" << endl;
+ 
+   if (method == 1) 
+   {
+      // test: retrieve cuts for particular signal efficiency
+      // CINT ignores dynamic_casts so we have to use a cuts-specific Reader function to acces the pointer
+      TMVA::MethodCuts* mcuts = reader->FindCutsMVA( "CutsGA method" ) ;
+ 
+      if (mcuts) 
+      {
+         std::vector<Double_t> cutsMin;
+         std::vector<Double_t> cutsMax;
+         mcuts->GetCuts( 0.7, cutsMin, cutsMax );
+         std::cout << "--- -------------------------------------------------------------" << endl;
+         std::cout << "--- Retrieve cut values for signal efficiency of 0.7 from Reader" << endl;
+         for (UInt_t ivar=0; ivar<cutsMin.size(); ivar++) 
+         {
+            std::cout << "... Cut: "
+                      << cutsMin[ivar]
+                      << " < \""
+                      << mcuts->GetInputVar(ivar)
+                      << "\" <= "
+                      << cutsMax[ivar] << std::endl;
+         }
+         cout << "--- -------------------------------------------------------------" << endl;
+      }
+   }
 
           
