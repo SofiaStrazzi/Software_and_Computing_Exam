@@ -351,3 +351,16 @@ void MLtmva_analysis()
    				rarityHistBdt->Write(); 
    		}
           
+   // I close the target
+   target->Close();
+
+   // I delete the reader
+   delete reader;
+ 
+   // I write to the user that the macro finisched the analysis and where to find the output histograms
+   cout << "\n\nMLtmva_analysis MACRO FINISHED THE ANALYSIS FOR THE INSERTED DATA" << endl;
+   cout << "The output histograms are contained in the output file MLtmva_analysis_output.root" << endl;
+
+   return 0;
+}
+          
