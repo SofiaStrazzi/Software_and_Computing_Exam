@@ -258,6 +258,3 @@ predictions = lin_estimator.predict(data_input_fn)
 
 for i in range(50):
 	print(list(next(predictions).values())[0]
-	 
-	      
-#print(list(predictions).values()[0])
