@@ -49,35 +49,35 @@ while (n_Events != '1' and n_Events != '2'):
 
 if (n_Events == '1'):
 	# I read the .root file containing all Higgs events, that is in the directory trees
-	tree = uproot.open("./trees/higgsevents.root")[tree_name]
+	tree_h = uproot.open("./trees/higgsevents.root")[tree_name]
 	#tree.show() # If I want to print the variables that I'm using
 	# I read the .root file containing all top pair production events, that is in the directory trees
-	tree = uproot.open("./trees/ttbarevents.root")[tree_name]
+	tree_t = uproot.open("./trees/ttbarevents.root")[tree_name]
 	#tree.show() # If I want to print the variables that I'm using
 	# I read the .root file containing all real production events, that is in the directory trees
-	tree = uproot.open("./trees/dataevents.root")[tree_name]
+	tree_d = uproot.open("./trees/dataevents.root")[tree_name]
 	#tree.show() # If I want to print the variables that I'm using
 	
 if (n_Events == '2'):
 	# I read the .root file containing the first 10000 Higgs events, that is in the directory reducedtrees
-	tree = uproot.open("./reducedtrees/reduced_higgsevents.root")[tree_name]
+	tree_h = uproot.open("./reducedtrees/reduced_higgsevents.root")[tree_name]
 	#tree.show() # If I want to print the variables that I'm using
 	# I read the .root file containing the first 10000 top pair production events, that is in the directory reducedtrees
-	tree = uproot.open("./reducedtrees/reduced_ttbarevents.root")[tree_name]
+	tree_t = uproot.open("./reducedtrees/reduced_ttbarevents.root")[tree_name]
 	#tree.show() # If I want to print the variables that I'm using
-		# I read the .root file containing the first 10000 real production events, that is in the directory reducedtrees
-	tree = uproot.open("./reducedtrees/reduced_dataevents.root")[tree_name]
+	# I read the .root file containing the first 10000 real production events, that is in the directory reducedtrees
+	tree_d = uproot.open("./reducedtrees/reduced_dataevents.root")[tree_name]
 	#tree.show() # If I want to print the variables that I'm using
 	
 
 # Create a dataframe with all the variables of the tree I decided to use for the signal
-df_higgsevents = tree.arrays(cols, library="pd")
+df_higgsevents = tree_h.arrays(cols, library="pd")
 
 # Create a dataframe with all the variables of the tree I decided to use for the background
-df_ttbarevents = tree.arrays(cols, library="pd")
+df_ttbarevents = tree_t.arrays(cols, library="pd")
 
 # Create a dataframe with all the variables of the tree I in which the real data are contained
-df_dataevents = tree.arrays(cols, library="pd")
+df_dataevents = tree_d.arrays(cols, library="pd")
 
 
 ##### I can have a look to some distributions in order to have an idea of the data that I have
