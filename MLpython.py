@@ -252,12 +252,15 @@ print("--------------------------------------------------------------\n\n")
 print(lin_estimator_results)
 print("\n\n--------------------------------------------------------------\n\n")
 
-print("Predictions for the real sample: generating object \n")
+print("Predictions for the real sample: generating object at the following adress\n")
 predictions = lin_estimator.predict(data_input_fn)
+# I clear the output to avoid problems
+clear_output()
+print(predictions)
 
 #for i in range(50):
 	#print(list(next(predictions).values())[0])
 	
-print("\n\nAs it can be seen from the performances, this kind of classifier is not very good for the analysis of the data introduced. \n")
+print("\n\nAs it can be seen from the performances, this kind of classifier is not very good for the analysis of the data introduced.")
 print("\nThe project contains 2 macros that compare other 4 different TMVA methods and let the user choose which is the best one, launching another macro that analyses the data.")
 print("\n\nSo you can run the analysis.py macro another time to try the analysis with TMVA methods\n\n")
