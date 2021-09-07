@@ -234,4 +234,42 @@ void MLtmva_analysis()
       	  cout << "--- ... Processing event: " << ievt << endl;
  
       theTree->GetEntry(ievt);
+     
+      // Return the MVA outputs and fill into histograms
+      if (method == 1) 
+    	 {
+         // Cuts is a special case, it is not a machine learning method, so I give the signal efficiency of 0.7
+         Bool_t passed = reader->EvaluateMVA( "CutsGA method", effS );
+         if (passed) nSelCutsGA++;
+      	 }
+ 
+      if (method == 2)   
+      		histFi ->Fill( reader->EvaluateMVA( "Fisher method" ) );
+
+      if (method == 3)   
+      		histNnbnn ->Fill( reader->EvaluateMVA( "MLPBNN method" ) );
+
+      if (method == 4)   
+      		histBdt ->Fill( reader->EvaluateMVA( "BDT method" ) );
+      
+      // Retrieve probability instead of MVA output
+      if (method == 2)   
+      	 {
+         probHistFi  ->Fill( reader->GetProba ( "Fisher method" ));
+         rarityHistFi->Fill( reader->GetRarity ( "Fisher method" ));
+         }
+
+      if (method == 3)   
+         {
+         probHistNnbnn  ->Fill( reader->GetProba ( "MLPBNN method" ));
+         rarityHistNnbnn->Fill( reader->GetRarity ( "MLPBNN method" ));
+         }
+
+      if (method == 4)   
+         {
+         probHistBdt  ->Fill( reader->GetProba ( "BDT method" ));
+         rarityHistBdt->Fill( reader->GetRarity ( "BDT method" ));
+         }
+   	}
+
           
