@@ -203,6 +203,19 @@ void MLtmva_analysis()
       probHistBdt   = new TH1F( "MVA_Bdt_Proba", "MVA_Bdt_Proba",  nbin, 0, 1 );
       rarityHistBdt = new TH1F( "MVA_Bdt_Rarity", "MVA_Bdt_Rarity", nbin, 0, 1 );
       }
+   
           
-          
+   // Event loop
+   // Prepare the event tree
+   cout << "--- Select the sample" << endl;
+   TTree* theTree = (TTree*)input->Get("EventsTree");
+   
+   // I set branch adresses
+   theTree->SetBranchAddress("EventNumber", &EventNumber);
+   theTree->SetBranchAddress("MET", &MET);
+   theTree->SetBranchAddress("jet_pT", &jet_pT);
+   theTree->SetBranchAddress("jet_eta", &jet_eta);
+   theTree->SetBranchAddress("jet_phi", &jet_phi);
+   theTree->SetBranchAddress("jet_m", &jet_m);
+   theTree->SetBranchAddress("jet_isB", &jet_isB);    
           
