@@ -253,7 +253,8 @@ boostedtrees_estimator = tf.estimator.BoostedTreesClassifier(
 						center_bias=False,
    						pruning_mode='none', 
 						quantile_sketch_epsilon=0.01,
-    						train_in_memory=False)
+    						train_in_memory=False
+						)
 
 # I train the BoostedTreesClassifier estimator that I just defined
 boostedtrees_estimator.train(train_input_fn)
