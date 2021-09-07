@@ -227,10 +227,6 @@ lin_estimator.train(train_input_fn)
 # Evaluation of the training with the linear estimator 
 lin_estimator_results = lin_estimator.evaluate(eval_input_fn)
 
-
-# Evaluation of the training with the linear estimator 
-#lin_estimator_results = lin_estimator.evaluate(eval_input_fn)
-
 # I clear the output to avoid problems
 clear_output()
 
@@ -261,7 +257,7 @@ baseline_estimator = tf.estimator.BaselineClassifier(
 baseline_estimator.train(train_input_fn)
 
 # I Evaluate cross entropy between the test and train labels
-loss = baseline_estimator.evaluate(eval_input_fn)["loss"]
+#loss = baseline_estimator.evaluate(eval_input_fn)["loss"]
 
 # predict outputs the probability distribution of the classes as seen in training
 #predictions = classifier.predict(new_samples)
