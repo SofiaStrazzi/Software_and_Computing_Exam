@@ -48,7 +48,7 @@ void MLtmva_analysis()
    cin >> method;
  
    // I put a control on the answer of the user
-   while (method != 1 && method != 2 && method != 3 && method != 4
+   while (method != 1 && method != 2 && method != 3 && method != 4)
       {
       cout << "\n\nPRESS 1, 2, 3 OR 4 TO SELECT THE METHOD THAT YOU WANT TO USE TO ANALYZE THE DATA:" << endl << endl;
 
