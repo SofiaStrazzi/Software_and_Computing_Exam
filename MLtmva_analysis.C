@@ -177,15 +177,18 @@ void MLtmva_analysis()
    cout << "--- Select the sample" << endl;
    TTree* theTree = (TTree*)input->Get("EventsTree");
   
+   Long64_t *EventNumber2=0;
+   vector<float> *MET2=0, *jet_pT2=0, *jet_eta2=0, *jet_phi2=0, *jet_m2=0;
+   vector<int> *jet_isB2=0;
  
    // I set branch adresses
-   theTree->SetBranchAddress("EventNumber", &EventNumber);
-   theTree->SetBranchAddress("MET", &MET);
-   theTree->SetBranchAddress("jet_pT", &jet_pT);
-   theTree->SetBranchAddress("jet_eta", &jet_eta);
-   theTree->SetBranchAddress("jet_phi", &jet_phi);
-   theTree->SetBranchAddress("jet_m", &jet_m);
-   theTree->SetBranchAddress("jet_isB", &jet_isB); 
+   theTree->SetBranchAddress("EventNumber", &EventNumber2);
+   theTree->SetBranchAddress("MET", &MET2);
+   theTree->SetBranchAddress("jet_pT", &jet_pT2);
+   theTree->SetBranchAddress("jet_eta", &jet_eta2);
+   theTree->SetBranchAddress("jet_phi", &jet_phi2);
+   theTree->SetBranchAddress("jet_m", &jet_m2);
+   theTree->SetBranchAddress("jet_isB", &jet_isB2); 
           
    // Efficiency calculator for cutsGA method
    Int_t nSelCutsGA = 0;
