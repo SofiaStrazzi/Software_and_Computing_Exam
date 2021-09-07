@@ -257,18 +257,7 @@ predictions = lin_estimator.predict(data_input_fn)
 
 
 for i in range(50):
-	print(list(predictions)[0])
+	print(list(next(predictions).values())[0]
+	#print(list(predictions).values()[0])
 	print("\n")
-	
 
-
-
-
-
-
-
-# I count the number of higgs bosons present in the evaluation sample on the base of the previous results
-# higgs_candidates = probs_challenge[probs_challenge > 0.3].count() 
-
-# I print the number of higgs bosons present in the evaluation sample
-# print('The alghorithms found ' + str(higgs_candidates) + ' candidates of higgs bosons into the evaluation dataset')
