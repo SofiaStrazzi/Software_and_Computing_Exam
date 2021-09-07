@@ -100,21 +100,9 @@ void MLtmva_analysis()
    }
    
    cout << "\nAnalysing data in the file: " << input->GetName() << endl;
-          
-   // //Create a set of variables and declare them to the reader
-   //  Long64_t EventNumber;
-   //  vector<float,ROOT::Detail::VecOps::RAdoptAllocator<float>> MET, jet_pT, jet_eta, jet_phi, jet_m;
-   //  vector<int,ROOT::Detail::VecOps::RAdoptAllocator<int>> jet_isB;
-   // //Float_t EventNumber, MET, jet_pT, jet_eta, jet_phi, jet_m, 
-   // //Int_t jet_isB;
-   //  //Float_t EventNumber;
-
-   // // Create the Reader object
-   // TMVA::Reader *reader = new TMVA::Reader( "!Color:!Silent" );
 
 
    // Create a set of variables and declare them to the reader
-
    Float_t EventNumber, MET, jet_pT, jet_eta, jet_phi, jet_m, jet_isB;
 
    //Long64_t *EventNumber=0;
@@ -132,8 +120,6 @@ void MLtmva_analysis()
    reader -> AddVariable("jet_phi", &jet_phi);
    reader -> AddVariable("jet_m", &jet_m);
    reader -> AddVariable("jet_isB", &jet_isB);
- 
-   delete EventNumber, MET, jet_pT, jet_eta, jet_phi, jet_m, jet_isB;
           
    // I assign the names to the methods
    TString methodString;
