@@ -7,7 +7,7 @@ The project contains:
 - another folder containing an example of the output results by the different macros;
 -  2 macros for the Machine Learning methods' performances evaluation and comparison:
     - one with PYTHON: here a linear classifier is evaluated on the data sample;
-    - the other with TMVA based methods: a comparison between 4 methods is done;
+    - the other with TMVA based methods: a comparison between 4 methods is done (CutsGA, Fisher, NnBnn and BDT);
 - a TMVA macro which analyses the inserted data with the chosen method
 - a main macro that let the user decide which of the previous macros wants to open and which machine learning method wants to use to analize data. On the base of the answers this macro opens the different files;
 - the macro that was used to cut the datasets in order to have just the leaves of the trees that I needed and reduce the samples;
@@ -22,6 +22,13 @@ https://github.com/SofiaStrazzi/Software_and_Computing_Exam.git
 # Project description
 
 Program used to find events containing Higgs bosons decaying to b quark pairs in the LHC data: the program shows an evaluation of a linear estimator in the PYTHON file and compares the performances of 4 machine learning techniques with TMVA methods. An output file with all the results is created and a ROC curve. On the base of the results, the user can decide which method is the best one and use it to analyse the data.
+
+The programs gives in as output:
+- a trainingevents folder containing the TMVA weights for the different methods;
+- a LinearClassifier_Output folder containing the linear estimator output information
+- a .root file called MLtmva_comparison_output that contains output of the comparison of the 4 different methods (CutsGA, Fisher, NnBnn and BDT)
+- a .root file called MLtmva_analysis_output that contains the output of the real data analysis with the chosen method
+- During the different steps the program asks the user if he wants to see some plots in real time containing for example some of the distributions or the ROC curves.
 
 Three different datasets are used to test the program:
 - Higgs bosons (higgsevents.root) which contains the signal events;
