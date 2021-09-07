@@ -44,7 +44,7 @@ void MLtmva() {
     cin >> answer;
     }
 
-  TFile* inputFile_higgs, inputFile_ttbar;
+  TFile *inputFile_higgs, *inputFile_ttbar;
     
   // I open and assign a name to the input .root files on the base of the decision of the user
   if (answer == 1)
