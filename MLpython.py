@@ -254,11 +254,9 @@ print("\n\n--------------------------------------------------------------\n\n")
 
 print(" Creating an object for the predictions \n")
 predictions_data = lin_estimator.predict(data_input_fn)
-print(predictions_data)
+predictiondict= next(predictions_data)
 print("\n\n")
 
-data_results = list(lin_estimator.predict(data_input_fn))
-print("\n\n")
 
 
 
