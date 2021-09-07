@@ -217,5 +217,21 @@ void MLtmva_analysis()
    theTree->SetBranchAddress("jet_eta", &jet_eta);
    theTree->SetBranchAddress("jet_phi", &jet_phi);
    theTree->SetBranchAddress("jet_m", &jet_m);
-   theTree->SetBranchAddress("jet_isB", &jet_isB);    
+   theTree->SetBranchAddress("jet_isB", &jet_isB); 
+          
+   // Efficiency calculator for cutsGA method
+   Int_t nSelCutsGA = 0;
+   Double_t effS = 0.7;
+ 
+   std::vector<Float_t> vecVar(4); // vector for EvaluateMVA tests
+ 
+   cout << "--- Processing: " << theTree->GetEntries() << " events" << endl;
+   TStopwatch sw;
+   sw.Start();
+   for (Long64_t ievt=0; ievt<theTree->GetEntries();ievt++) 
+   	{
+      if (ievt%1000 == 0) 
+      	  cout << "--- ... Processing event: " << ievt << endl;
+ 
+      theTree->GetEntry(ievt);
           
