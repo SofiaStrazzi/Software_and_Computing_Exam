@@ -201,6 +201,39 @@ for feature_name in num_columns:
   feature_columns.append(tf.feature_column.numeric_column(feature_name, dtype=tf.float32))
 
 
+
+##### LinearClassifier
+print("\n\n---- preparing BaselineClassifier \n\n")
+##### I define the BaselineClassifier estimator that I want to use and its parameters
+
+baseline_estimator = tf.estimator.BaselineClassifier(
+    						    model_dir="ongoing/lin0", 
+	            				    n_classes=2, 
+						    weight_column=None, 
+						    label_vocabulary=None,
+    						    optimizer='Ftrl', 
+						    config=None,
+    						    loss_reduction=tf.compat.v2.keras.losses.Reduction.SUM_OVER_BATCH_SIZE
+						    )
+
+# I train the BaselineClassifier estimator that I just defined
+baseline_estimator.train(train_input_fn)
+
+# Evaluation of the training with the BaselineClassifier estimator 
+baseline_estimator_results = baseline_estimator.evaluate(eval_input_fn)
+
+# I clear the output to avoid problems
+clear_output()
+
+# I print on terminal the results of the precedent evaluation
+print("\n\n--------------------------------------------------------------\n")
+print("\t BaselineClassifier OUTPUT \n")
+print("--------------------------------------------------------------\n\n")
+print(baseline_estimator_results)
+
+
+
+
 ##### LinearClassifier
 print("\n\n---- preparing LinearClassifier \n\n")
 ##### I define the linear estimator that I want to use and its parameters
