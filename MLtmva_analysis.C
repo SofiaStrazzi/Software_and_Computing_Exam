@@ -122,10 +122,10 @@ void MLtmva_analysis()
    // reader -> AddVariable("jet_isB", (Float_t*)(&jet_isB[0]));
 
    // Create a set of variables and declare them to the reader
-   //Long64_t EventNumber;
-   //vector<float,ROOT::Detail::VecOps::RAdoptAllocator<float>> MET, jet_pT, jet_eta, jet_phi, jet_m;
-   //vector<int,ROOT::Detail::VecOps::RAdoptAllocator<int>> jet_isB;
-   Float_t EventNumber, MET, jet_pT, jet_eta, jet_phi, jet_m, jet_isB;
+   Long64_t EventNumber;
+   vector<float> *MET=0, *jet_pT=0, *jet_eta=0, *jet_phi=0, *jet_m=0;
+   vector<int> *jet_isB=0;
+   //Float_t EventNumber, MET, jet_pT, jet_eta, jet_phi, jet_m, jet_isB;
 
    // Create the Reader object
    TMVA::Reader *reader = new TMVA::Reader( "!Color:!Silent" );
@@ -195,6 +195,8 @@ void MLtmva_analysis()
    cout << "--- Select the sample" << endl;
    TTree* theTree = (TTree*)input->Get("EventsTree");
    
+ 
+ 
    // I set branch adresses
    theTree->SetBranchAddress("EventNumber", &EventNumber);
    theTree->SetBranchAddress("MET", &MET);
