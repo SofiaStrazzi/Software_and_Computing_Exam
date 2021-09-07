@@ -164,5 +164,21 @@ void MLtmva_analysis()
    TString weightfile = dir + prefix + TString("_") + methodString + TString(".weights.xml");
    reader->BookMVA( methodName, weightfile );
           
+   // Book output histograms
+   // Histogram definition
+   UInt_t nbin = 100;
+   TH1F *histFi(0);
+   TH1F *histNnbnn(0);
+   TH1F *histBdt(0);
+ 
+   if (method == 2) 
+   		histFi    = new TH1F( "MVA_Fisher", "MVA_Fisher", nbin, -4, 4 );
+
+   if (method == 3) 
+   		histNnbnn = new TH1F( "MVA_MLPBNN", "MVA_MLPBNN", nbin, -1.25, 1.5 );
+
+   if (method == 4) 
+   		histBdt   = new TH1F( "MVA_BDT", "MVA_BDT", nbin, -0.8, 0.8 );
+          
           
           
