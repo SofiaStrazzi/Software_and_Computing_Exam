@@ -210,14 +210,13 @@ for feature_name in num_columns:
 print("\n\n---- preparing LinearClassifier \n\n")
 ##### I define the linear estimator that I want to use and its parameters
 
-lin_estimator = tf.estimator.LinearClassifier(
-					        feature_columns=feature_columns,
-                                                optimizer = tf.keras.optimizers.SGD(
-                                                	learning_rate=0.005,
-                                                	momentum=0.95,
-                                                	nesterov=True
-                                                	),
-                                                model_dir="ongoing/LC")
+lin_estimator = tf.estimator.LinearClassifier(feature_columns=feature_columns,
+                                               optimizer = tf.keras.optimizers.SGD(
+                                               learning_rate=0.005,
+                                               momentum=0.95,
+                                               nesterov=True
+                                             ),
+                                              model_dir="ongoing/lin0")
 
 # I train the linear estimator that I just defined
 lin_estimator.train(train_input_fn)
