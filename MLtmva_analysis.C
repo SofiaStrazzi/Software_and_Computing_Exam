@@ -156,3 +156,13 @@ void MLtmva_analysis()
          methodString = "BDT";
           
           
+   // Book the MVA methods considering the pathe and the name of the files I created with the previous macro 
+   TString dir    = "trainingevents/weights/"; //this is the name I used for the directory in the MLtmva.C file
+   TString prefix = "TMVAClassification";
+
+   TString methodName = methodString + TString(" method");
+   TString weightfile = dir + prefix + TString("_") + methodString + TString(".weights.xml");
+   reader->BookMVA( methodName, weightfile );
+          
+          
+          
