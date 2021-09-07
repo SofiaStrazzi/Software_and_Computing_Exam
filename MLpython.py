@@ -224,9 +224,6 @@ for feature_name in num_columns:
   feature_columns.append(tf.feature_column.numeric_column(feature_name, dtype=tf.float32))
 
 
-
-
-
 ##### LinearClassifier
 print("\n\n---- preparing LinearClassifier \n\n")
 ##### I define the linear estimator that I want to use and its parameters
@@ -255,7 +252,8 @@ print("--------------------------------------------------------------\n\n")
 print(lin_estimator_results)
 print("\n\n--------------------------------------------------------------\n\n")
 
-
+predictions_data = lin_estimator.predict(data_input_fn)
+print(predictions_data)
 
 
 
