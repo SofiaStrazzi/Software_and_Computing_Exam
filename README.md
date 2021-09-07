@@ -1,7 +1,7 @@
 # Software_and_Computing_Exam
 
 The project contains:
-- 2 folders, each with 3 .root files with the datasets (signal, background and mixed data):
+- 2 folders, each with 3 .root files with the datasets (signal, background and real (mixed) data):
   - the trees folder contains the 3 data samples with all the events;
   - the reducedtrees folder contains 3 reduced data samples with just the first 10000 events for each leaf, useful to try the program in just few minutes
 - another folder containing an example of some output results by the different macros;
@@ -28,7 +28,7 @@ Three different datasets are used to test the program:
 - Top quark pairs (ttbarevents.root) which contains background events;
 - Data (dataevents.root) containing both signal and background events that I want to analyze.
 
-The three datasets are extracted from files downloaded by Delphes portal:
+The three datasets are extracted from bigger files:
 they have been cutted through the macro copyleaves in order to obtain smaller files with just the information that I needed.
 
 All the trees are called EventsTree. 
