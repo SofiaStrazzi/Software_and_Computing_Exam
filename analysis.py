@@ -4,14 +4,14 @@
 # The user can decide if use an analysis based on PYTHON libraries or based on ROOT TMVA
 
 print("\nYou can decide to use the PYTHON script to see the performances of a linear estimator or the TMVA to compare 4 different Machine Learning methodes and then chose one of them to analyze the data\n")
-print("Press 1 to use the PYTHON script or 2 to use ROOT TMVA \t")
+print("Press 1 to use the PYTHON script or 2 to use ROOT TMVA    ")
 type_of_analysis = input()
 
 # Control on the input typed by the user:
 # if the answer is not consistent, I let ask the user to type a right command
 while (type_of_analysis != '1' and type_of_analysis != '2'):
 	print("\nERROR: the input doesn't corrispond to any option \n")
-	print("Press 1 to use the PYTHON script or 2 to use ROOT TMVA \t")
+	print("Press 1 to use the PYTHON script or 2 to use ROOT TMVA    ")
 	type_of_analysis = input()
 	
 import os
