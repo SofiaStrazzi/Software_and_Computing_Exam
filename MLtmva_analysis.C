@@ -122,22 +122,22 @@ void MLtmva_analysis()
    // reader -> AddVariable("jet_isB", (Float_t*)(&jet_isB[0]));
 
    // Create a set of variables and declare them to the reader
-   Long64_t EventNumber;
-   vector<float> *MET=0, *jet_pT=0, *jet_eta=0, *jet_phi=0, *jet_m=0;
-   vector<int> *jet_isB=0;
-   //Float_t EventNumber, MET, jet_pT, jet_eta, jet_phi, jet_m, jet_isB;
+
+   Float_t EventNumber, MET, jet_pT, jet_eta, jet_phi, jet_m, jet_isB;
 
    // Create the Reader object
    TMVA::Reader *reader = new TMVA::Reader( "!Color:!Silent" );
 
    // I pass all the variables to the reader
-   reader -> AddVariable("EventNumber", &EventNumber);
+   reader -> AddVariable("EventNumber", &EventNumber); 
    reader -> AddVariable("MET", &MET);
    reader -> AddVariable("jet_pT", &jet_pT);
    reader -> AddVariable("jet_eta", &jet_eta);
    reader -> AddVariable("jet_phi", &jet_phi);
    reader -> AddVariable("jet_m", &jet_m);
    reader -> AddVariable("jet_isB", &jet_isB);
+ 
+   delete EventNumber, MET, jet_pT, jet_eta, jet_phi, jet_m, jet_isB;
           
    // I assign the names to the methods
    TString methodString;
@@ -195,7 +195,9 @@ void MLtmva_analysis()
    cout << "--- Select the sample" << endl;
    TTree* theTree = (TTree*)input->Get("EventsTree");
    
- 
+   Long64_t EventNumber;
+   vector<float> *MET=0, *jet_pT=0, *jet_eta=0, *jet_phi=0, *jet_m=0;
+   vector<int> *jet_isB=0;
  
    // I set branch adresses
    theTree->SetBranchAddress("EventNumber", &EventNumber);
