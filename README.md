@@ -54,7 +54,7 @@ The python script is used in a given environment. A .yml file containing the use
 
 # How to run the code 
 
-Analysis can be generated starting from the script analysis.py, giving on the terminal the command:
+Analysis can be generated starting from the script analysis.py, giving on the terminal (inside the environment) the command:
 
 "python3 analysis.py" 
 
