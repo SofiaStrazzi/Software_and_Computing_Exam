@@ -222,7 +222,11 @@ lin_estimator = tf.estimator.LinearClassifier(feature_columns=feature_columns,
 lin_estimator.train(train_input_fn)
 
 # Evaluation of the training with the linear estimator 
-lin_estimator_results = lin_estimator.evaluate(eval_input_fn)
+lin_estimator_results = estimator.evaluate(eval_input_fn)
+
+
+# Evaluation of the training with the linear estimator 
+#lin_estimator_results = lin_estimator.evaluate(eval_input_fn)
 
 # I clear the output to avoid problems
 clear_output()
