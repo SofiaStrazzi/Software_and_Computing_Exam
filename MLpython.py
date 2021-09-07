@@ -254,13 +254,14 @@ print("\n\n--------------------------------------------------------------\n\n")
 
 print("Predictions for the real sample \n")
 #predictions_data = lin_estimator.predict(data_input_fn)
-for single_prediction in lin_estimator.predict(data_input_fn):
-    #predicted_class = single_prediction['class']
-    probability = single_prediction['probability']
-	
-print("\n\n")
-print('The probability for the real dataset to be rightly divided is ' + str(probability))
 
+
+predictions = list(lin_estimator.predict(input_fn=data_input_fn))
+predicted_classes = [p["classes"] for p in predictions]
+
+print(
+    "New Samples, Class Predictions:    {}\n"
+    .format(predicted_classes))
 
 
 
