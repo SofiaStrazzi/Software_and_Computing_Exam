@@ -236,25 +236,25 @@ print("\n\n---- preparing BoostedTreesClassifier \n\n")
 ##### I define the BoostedTreesClassifier that I want to use and its parameters
 
 boostedtrees_estimator = tf.estimator.BoostedTreesClassifier(
-    						feature_columns=feature_columns,
-						n_batches_per_layer,
-						model_dir="ongoing/BTC", 
-						n_classes=2,
-    						weight_column=None, 
-						label_vocabulary=None, 
-						n_trees=100, 
-						max_depth=6,
-    						learning_rate=0.05, 
-						l1_regularization=0.0, 
-						l2_regularization=0.0,
-    						tree_complexity=0.0, 
-						min_node_weight=0.0, 
-						config=None, 
-						center_bias=False,
-   						pruning_mode='none', 
-						quantile_sketch_epsilon=0.01,
-    						train_in_memory=False
-						)
+    							    	feature_columns=feature_columns,
+								n_batches_per_layer,
+								model_dir="ongoing/BTC", 
+								n_classes=2,
+    								weight_column=None, 
+								label_vocabulary=None, 
+								n_trees=100, 
+								max_depth=6,
+    								learning_rate=0.05, 
+								l1_regularization=0.0, 
+								l2_regularization=0.0,
+    								tree_complexity=0.0, 
+								min_node_weight=0.0, 
+								config=None, 
+								center_bias=False,
+   								pruning_mode='none', 
+								quantile_sketch_epsilon=0.01,
+    								train_in_memory=False
+								)
 
 # I train the BoostedTreesClassifier estimator that I just defined
 boostedtrees_estimator.train(train_input_fn)
