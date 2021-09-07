@@ -257,7 +257,7 @@ predictions_data = lin_estimator.predict(data_input_fn)
 print(predictions_data)
 print("\n\n")
 
-data_results = list(linear_est.predict(data_input_fn))
+data_results = list(lin_estimator.predict(data_input_fn))
 print(data_results)
 print("\n\n")
 
