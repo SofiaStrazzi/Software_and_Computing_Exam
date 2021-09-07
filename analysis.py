@@ -3,7 +3,7 @@
 
 # The user can decide if use an analysis based on PYTHON libraries or based on ROOT TMVA
 
-print("\nYou can decide to use the PYTHON script to see the performances of a linear estimator or the TMVA to compare 4 different Machine Learning methodes and then use one of them to analyze the data\n")
+print("\nYou can decide to use the PYTHON script to see the performances of a linear estimator or the TMVA to compare 4 different Machine Learning methodes and then chose one of them to analyze the data\n")
 print("Press 1 to use the PYTHON script or 2 to use ROOT TMVA \t")
 type_of_analysis = input()
 
