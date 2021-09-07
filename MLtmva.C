@@ -44,18 +44,19 @@ void MLtmva() {
     cin >> answer;
     }
 
-
+  TFile* inputFile_higgs, inputFile_ttbar;
+    
   // I open and assign a name to the input .root files on the base of the decision of the user
   if (answer == 1)
     {
-    auto inputFile_higgs = TFile::Open("./trees/higgsevents.root");
-    auto inputFile_ttbar = TFile::Open("./trees/ttbarevents.root");
+    inputFile_higgs = TFile::Open("./trees/higgsevents.root");
+    inputFile_ttbar = TFile::Open("./trees/ttbarevents.root");
     }
   
   else
     {
-    auto inputFile_higgs = TFile::Open("./reducedtrees/reduced_higgsevents.root");
-    auto inputFile_ttbar = TFile::Open("./reducedtrees/reduced_ttbarevents.root");
+    inputFile_higgs = TFile::Open("./reducedtrees/reduced_higgsevents.root");
+    inputFile_ttbar = TFile::Open("./reducedtrees/reduced_ttbarevents.root");
     }
 
   
