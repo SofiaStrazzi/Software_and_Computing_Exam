@@ -4,7 +4,7 @@ The project contains:
 - 2 folders, each with 3 .root files with the datasets (signal, background and real (mixed) data):
   - the trees folder contains the 3 data samples with all the events;
   - the reducedtrees folder contains 3 reduced data samples with just the first 10000 events for each leaf, useful to try the program in just few minutes
-- another folder containing an example of some output results by the different macros;
+- another folder containing an example of just a few output results by the different macros (All the training outputs and evaluation are not present here);
 -  2 macros for the Machine Learning methods' performances evaluation and comparison:
     - one with PYTHON: here a linear classifier is evaluated on the data sample;
     - the other with TMVA based methods: a comparison between 4 methods is done (CutsGA, Fisher, NnBnn and BDT);
