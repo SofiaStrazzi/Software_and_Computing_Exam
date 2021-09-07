@@ -63,7 +63,7 @@ void MLtmva_analysis()
  
  
     //I ask the user if he wants to use the whole dataset or just a part of the events
-   int answer=0;
+   Int_t answer = 0;
   
    cout << "\nPress 1 to use the whole datasample (the analysis can take many time) or 2 to analyze just 10000 events to try the program\t";
    cin >> answer;
@@ -78,13 +78,14 @@ void MLtmva_analysis()
 
    // I prepare the input tree
    TFile *input(0);
-
+   TString fname;
+   
    // I open and assign a name to the input .root file with the data I want to analyze on the base of the decision of the user
    if (answer == 1)
-     TString fname = "./trees/dataevents.root";
+     fname = "./trees/dataevents.root";
   
    else
-     TString fname = "./reducedtrees/reduced_dataevents.root";
+     fname = "./reducedtrees/reduced_dataevents.root";
 
 
    if (!gSystem->AccessPathName( fname )) {
@@ -92,7 +93,7 @@ void MLtmva_analysis()
    }
 
    if (!input) {
-      cout << "ERROR: could not open data file" endl;
+      cout << "ERROR: could not open data file" << endl;
       exit(1);
    }
    
