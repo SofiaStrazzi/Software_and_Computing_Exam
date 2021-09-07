@@ -254,8 +254,10 @@ print("\n\n--------------------------------------------------------------\n\n")
 
 print(" Creating an object for the predictions \n")
 predictions_data = lin_estimator.predict(data_input_fn)
-predictiondict= next(predictions_data)
+results = list(predictions_data)
+tf.logging.info(results)
 print("\n\n")
+
 
 
 
